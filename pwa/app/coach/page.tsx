@@ -137,7 +137,7 @@ export default function CoachPage() {
         }
         return (a.number ?? Number.MAX_SAFE_INTEGER) - (b.number ?? Number.MAX_SAFE_INTEGER);
       });
-  }, [gradeFilter, sortKey, termFilter]);
+  }, [coachPlayerList, gradeFilter, sortKey, termFilter]);
 
   const activePlayerId =
     sortedPlayerList.find((player) => player.id === selectedPlayerId)?.id ??
