@@ -67,7 +67,7 @@ export const coachFilterControls: CoachFilterControl[] = [
   {
     id: "sort",
     label: "選手",
-    helperText: "選手名/学年/ポジション/背番号/伸長率/疲労フラグ"
+    helperText: "選手名/学年/ポジション/背番号"
   },
   {
     id: "grade",

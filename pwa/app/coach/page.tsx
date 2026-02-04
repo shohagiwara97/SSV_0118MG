@@ -9,7 +9,7 @@ import {
   coachPlayerReports
 } from "../lib/coachData";
 
-type CoachSortKey = "name" | "grade" | "position" | "number" | "growthRate" | "fatigueFlag";
+type CoachSortKey = "name" | "grade" | "position" | "number";
 
 type SortDirection = "asc" | "desc";
 
@@ -17,18 +17,14 @@ const sortOptions: { id: CoachSortKey; label: string }[] = [
   { id: "name", label: "選手名" },
   { id: "grade", label: "学年" },
   { id: "position", label: "ポジション" },
-  { id: "number", label: "背番号" },
-  { id: "growthRate", label: "伸長率" },
-  { id: "fatigueFlag", label: "疲労フラグ" }
+  { id: "number", label: "背番号" }
 ];
 
 const sortDirections: Record<CoachSortKey, SortDirection> = {
   name: "asc",
   grade: "asc",
   position: "asc",
-  number: "asc",
-  growthRate: "desc",
-  fatigueFlag: "desc"
+  number: "asc"
 };
 
 const gradeOptions = [
@@ -70,31 +66,9 @@ const comparePlayers = (
       return (positionOrder[a.position] ?? 9) - (positionOrder[b.position] ?? 9);
     case "number":
       return a.number - b.number;
-    case "growthRate":
-      return a.growthRate - b.growthRate;
-    case "fatigueFlag":
-      return Number(a.fatigueFlag) - Number(b.fatigueFlag);
     default:
       return 0;
   }
-};
-
-const statusBadgeStyles: Record<string, string> = {
-  上位: "border-accent/30 text-accent bg-accent/10",
-  急伸: "border-success/30 text-success bg-success/10",
-  要注意: "border-warning/40 text-warning bg-warning/10"
-};
-
-const formatGrowthRate = (value: number) => {
-  if (value > 0) return `+${value}%`;
-  if (value < 0) return `▼${Math.abs(value)}%`;
-  return "0%";
-};
-
-const growthRateTone = (value: number) => {
-  if (value > 0) return "text-success";
-  if (value < 0) return "text-danger";
-  return "text-muted";
 };
 
 const formatDelta = (value: number) => {
@@ -164,7 +138,7 @@ export default function CoachPage() {
       </header>
 
       <p className="text-base leading-relaxed text-muted sm:text-sm sm:leading-normal">
-        選手の伸長率とKPI差分を一覧し、改善・注意ポイントを素早く把握します。
+        選手のKPI差分を一覧し、改善ポイントを素早く把握します。
       </p>
 
       <section className="neon-card rounded-3xl p-4 sm:p-6">
@@ -249,28 +223,13 @@ export default function CoachPage() {
 
         <div className="mt-6 grid gap-5 md:grid-cols-[1fr_1.05fr] md:gap-6 lg:grid-cols-[1fr_1.1fr]">
           <div className="overflow-hidden rounded-2xl border border-line bg-white">
-            <div className="hidden grid-cols-[1.4fr_0.7fr_1fr] gap-3 border-b border-line px-4 py-3 text-[10px] uppercase tracking-[0.28em] text-muted sm:grid">
+            <div className="hidden grid-cols-[1.4fr_0.7fr] gap-3 border-b border-line px-4 py-3 text-[10px] uppercase tracking-[0.28em] text-muted sm:grid">
               <span>選手</span>
               <span>ポジション</span>
-              <span className="text-right">伸長率</span>
             </div>
             <div className="divide-y divide-line">
               {sortedPlayerList.map((player) => {
-                const statusClass = player.statusBadge
-                  ? statusBadgeStyles[player.statusBadge]
-                  : "";
                 const isSelected = player.id === activePlayerId;
-                const badge = player.statusBadge ? (
-                  <span
-                    className={`rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-[0.1em] ${statusClass}`}
-                  >
-                    {player.statusBadge}
-                  </span>
-                ) : player.fatigueFlag ? (
-                  <span className="rounded-full border border-warning/40 bg-warning/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.1em] text-warning">
-                    要注意
-                  </span>
-                ) : null;
 
                 return (
                   <button
@@ -278,7 +237,7 @@ export default function CoachPage() {
                     type="button"
                     onClick={() => setSelectedPlayerId(player.id)}
                     aria-pressed={isSelected}
-                    className={`grid w-full gap-3 px-4 py-3 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 sm:grid-cols-[1.4fr_0.7fr_1fr] sm:items-center sm:text-[13px] ${isSelected ? "bg-accent/10" : "hover:bg-surfaceAlt"}`}
+                    className={`grid w-full gap-3 px-4 py-3 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 sm:grid-cols-[1.4fr_0.7fr] sm:items-center sm:text-[13px] ${isSelected ? "bg-accent/10" : "hover:bg-surfaceAlt"}`}
                   >
                     <div className="sm:hidden">
                       <div className="flex items-center justify-between gap-3">
@@ -290,12 +249,6 @@ export default function CoachPage() {
                             <p className="text-sm text-ink">{player.name}</p>
                             <p className="text-[11px] text-muted">{player.grade}</p>
                           </div>
-                        </div>
-                        <div className="flex flex-col items-end gap-2">
-                          <span className={`font-semibold ${growthRateTone(player.growthRate)}`}>
-                            {formatGrowthRate(player.growthRate)}
-                          </span>
-                          {badge}
                         </div>
                       </div>
                       <p className="mt-2 text-xs text-muted">
@@ -311,12 +264,6 @@ export default function CoachPage() {
                       </div>
                     </div>
                     <span className="hidden text-muted sm:block">{player.position}</span>
-                    <div className="hidden flex-wrap items-center justify-end gap-2 sm:flex">
-                      <span className={`font-semibold ${growthRateTone(player.growthRate)}`}>
-                        {formatGrowthRate(player.growthRate)}
-                      </span>
-                      {badge}
-                    </div>
                   </button>
                 );
               })}
