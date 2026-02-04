@@ -41,6 +41,14 @@ def parse_float(value: str) -> Optional[float]:
         return None
 
 
+def apply_transform(value: Optional[float], transform: Optional[str]) -> Optional[float]:
+    if value is None:
+        return None
+    if transform == "abs":
+        return abs(value)
+    return value
+
+
 def parse_datetime_photon(value: str) -> Optional[dt.datetime]:
     if not value:
         return None
@@ -126,6 +134,7 @@ def aggregate_metrics(rows: List[Dict[str, str]], metrics: Dict[str, Any], agg: 
     for row in rows:
         for metric_id, meta in metrics.items():
             value = parse_float(row.get(meta["column"], ""))
+            value = apply_transform(value, meta.get("transform"))
             if value is None:
                 continue
             values_map[metric_id].append(value)
@@ -150,7 +159,8 @@ def extract_metrics(rows: List[Dict[str, str]], metrics: Dict[str, Any]) -> Dict
     row = rows[0]
     result: Dict[str, Optional[float]] = {}
     for metric_id, meta in metrics.items():
-        result[metric_id] = parse_float(row.get(meta["column"], ""))
+        value = parse_float(row.get(meta["column"], ""))
+        result[metric_id] = apply_transform(value, meta.get("transform"))
     return result
 
 

@@ -181,7 +181,7 @@ export default function Home() {
       </section>
 
       <footer className="rounded-2xl border border-line bg-white px-3 py-2 shadow-cardSoft sm:px-4 sm:py-3">
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:justify-between sm:gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:grid sm:grid-cols-2 sm:justify-items-center sm:gap-6">
           {brandLogos.map((brand) => (
             <img
               key={brand.label}

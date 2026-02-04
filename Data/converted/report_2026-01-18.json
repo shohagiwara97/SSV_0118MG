@@ -3,7 +3,7 @@
     "id": "meiji-gakuin-2026-01-18",
     "date": "2026-01-18"
   },
-  "generatedAt": "2026-02-04T16:16:38.323256",
+  "generatedAt": "2026-02-04T16:23:22.961677",
   "scoreRange": {
     "min": 70,
     "max": 95
@@ -67,8 +67,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 79,
-          "rank": 8,
+          "score": 95,
+          "rank": 1,
           "vendor": "Hawkin"
         }
       ],
@@ -298,9 +298,9 @@
             {
               "id": "lr_peak_landing_force",
               "label": "左右差: 着地最大力",
-              "value": -1.538,
+              "value": 1.538,
               "unit": "vendor",
-              "display": "-1.538"
+              "display": "1.538"
             }
           ]
         }
@@ -416,7 +416,7 @@
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
-            "value": -1.538,
+            "value": 1.538,
             "unit": "vendor"
           }
         }
@@ -480,8 +480,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 86,
-          "rank": 2,
+          "score": 84,
+          "rank": 10,
           "vendor": "Hawkin"
         }
       ],
@@ -697,23 +697,23 @@
             {
               "id": "lr_peak_braking_force",
               "label": "左右差: 制動最大力",
-              "value": -7.5618,
+              "value": 7.5618,
               "unit": "vendor",
-              "display": "-7.5618"
+              "display": "7.5618"
             },
             {
               "id": "lr_peak_propulsive_force",
               "label": "左右差: 推進最大力",
-              "value": -3.5526,
+              "value": 3.5526,
               "unit": "vendor",
-              "display": "-3.5526"
+              "display": "3.5526"
             },
             {
               "id": "lr_peak_landing_force",
               "label": "左右差: 着地最大力",
-              "value": -1.9534,
+              "value": 1.9534,
               "unit": "vendor",
-              "display": "-1.9534"
+              "display": "1.9534"
             }
           ]
         }
@@ -821,15 +821,15 @@
             "unit": "vendor"
           },
           "lr_peak_braking_force": {
-            "value": -7.5618,
+            "value": 7.5618,
             "unit": "vendor"
           },
           "lr_peak_propulsive_force": {
-            "value": -3.5526,
+            "value": 3.5526,
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
-            "value": -1.9534,
+            "value": 1.9534,
             "unit": "vendor"
           }
         }
@@ -893,8 +893,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 95,
-          "rank": 1,
+          "score": 70,
+          "rank": 12,
           "vendor": "Hawkin"
         }
       ],
@@ -1110,23 +1110,23 @@
             {
               "id": "lr_peak_braking_force",
               "label": "左右差: 制動最大力",
-              "value": -16.523,
+              "value": 16.523,
               "unit": "vendor",
-              "display": "-16.523"
+              "display": "16.523"
             },
             {
               "id": "lr_peak_propulsive_force",
               "label": "左右差: 推進最大力",
-              "value": -4.5561,
+              "value": 4.5561,
               "unit": "vendor",
-              "display": "-4.5561"
+              "display": "4.5561"
             },
             {
               "id": "lr_peak_landing_force",
               "label": "左右差: 着地最大力",
-              "value": -30.8501,
+              "value": 30.8501,
               "unit": "vendor",
-              "display": "-30.8501"
+              "display": "30.8501"
             }
           ]
         }
@@ -1234,15 +1234,15 @@
             "unit": "vendor"
           },
           "lr_peak_braking_force": {
-            "value": -16.523,
+            "value": 16.523,
             "unit": "vendor"
           },
           "lr_peak_propulsive_force": {
-            "value": -4.5561,
+            "value": 4.5561,
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
-            "value": -30.8501,
+            "value": 30.8501,
             "unit": "vendor"
           }
         }
@@ -1306,8 +1306,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 82,
-          "rank": 5,
+          "score": 90,
+          "rank": 6,
           "vendor": "Hawkin"
         }
       ],
@@ -1523,16 +1523,16 @@
             {
               "id": "lr_peak_braking_force",
               "label": "左右差: 制動最大力",
-              "value": -3.0591,
+              "value": 3.0591,
               "unit": "vendor",
-              "display": "-3.0591"
+              "display": "3.0591"
             },
             {
               "id": "lr_peak_propulsive_force",
               "label": "左右差: 推進最大力",
-              "value": -2.4496,
+              "value": 2.4496,
               "unit": "vendor",
-              "display": "-2.4496"
+              "display": "2.4496"
             },
             {
               "id": "lr_peak_landing_force",
@@ -1647,11 +1647,11 @@
             "unit": "vendor"
           },
           "lr_peak_braking_force": {
-            "value": -3.0591,
+            "value": 3.0591,
             "unit": "vendor"
           },
           "lr_peak_propulsive_force": {
-            "value": -2.4496,
+            "value": 2.4496,
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
@@ -1719,8 +1719,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 78,
-          "rank": 10,
+          "score": 94,
+          "rank": 3,
           "vendor": "Hawkin"
         }
       ],
@@ -2132,8 +2132,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 85,
-          "rank": 3,
+          "score": 86,
+          "rank": 9,
           "vendor": "Hawkin"
         }
       ],
@@ -2349,23 +2349,23 @@
             {
               "id": "lr_peak_braking_force",
               "label": "左右差: 制動最大力",
-              "value": -5.9864,
+              "value": 5.9864,
               "unit": "vendor",
-              "display": "-5.9864"
+              "display": "5.9864"
             },
             {
               "id": "lr_peak_propulsive_force",
               "label": "左右差: 推進最大力",
-              "value": -1.2793,
+              "value": 1.2793,
               "unit": "vendor",
-              "display": "-1.2793"
+              "display": "1.2793"
             },
             {
               "id": "lr_peak_landing_force",
               "label": "左右差: 着地最大力",
-              "value": -16.6532,
+              "value": 16.6532,
               "unit": "vendor",
-              "display": "-16.6532"
+              "display": "16.6532"
             }
           ]
         }
@@ -2473,15 +2473,15 @@
             "unit": "vendor"
           },
           "lr_peak_braking_force": {
-            "value": -5.9864,
+            "value": 5.9864,
             "unit": "vendor"
           },
           "lr_peak_propulsive_force": {
-            "value": -1.2793,
+            "value": 1.2793,
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
-            "value": -16.6532,
+            "value": 16.6532,
             "unit": "vendor"
           }
         }
@@ -2545,8 +2545,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 78,
-          "rank": 9,
+          "score": 94,
+          "rank": 2,
           "vendor": "Hawkin"
         }
       ],
@@ -2776,9 +2776,9 @@
             {
               "id": "lr_peak_landing_force",
               "label": "左右差: 着地最大力",
-              "value": -44.1495,
+              "value": 44.1495,
               "unit": "vendor",
-              "display": "-44.1495"
+              "display": "44.1495"
             }
           ]
         }
@@ -2894,7 +2894,7 @@
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
-            "value": -44.1495,
+            "value": 44.1495,
             "unit": "vendor"
           }
         }
@@ -2958,8 +2958,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 75,
-          "rank": 11,
+          "score": 89,
+          "rank": 8,
           "vendor": "Hawkin"
         }
       ],
@@ -3371,8 +3371,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 70,
-          "rank": 12,
+          "score": 82,
+          "rank": 11,
           "vendor": "Hawkin"
         }
       ],
@@ -3602,9 +3602,9 @@
             {
               "id": "lr_peak_landing_force",
               "label": "左右差: 着地最大力",
-              "value": -1.4117,
+              "value": 1.4117,
               "unit": "vendor",
-              "display": "-1.4117"
+              "display": "1.4117"
             }
           ]
         }
@@ -3720,7 +3720,7 @@
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
-            "value": -1.4117,
+            "value": 1.4117,
             "unit": "vendor"
           }
         }
@@ -3784,8 +3784,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 80,
-          "rank": 7,
+          "score": 94,
+          "rank": 4,
           "vendor": "Hawkin"
         }
       ],
@@ -4001,23 +4001,23 @@
             {
               "id": "lr_peak_braking_force",
               "label": "左右差: 制動最大力",
-              "value": -0.9336,
+              "value": 0.9336,
               "unit": "vendor",
-              "display": "-0.9336"
+              "display": "0.9336"
             },
             {
               "id": "lr_peak_propulsive_force",
               "label": "左右差: 推進最大力",
-              "value": -3.8572,
+              "value": 3.8572,
               "unit": "vendor",
-              "display": "-3.8572"
+              "display": "3.8572"
             },
             {
               "id": "lr_peak_landing_force",
               "label": "左右差: 着地最大力",
-              "value": -6.7422,
+              "value": 6.7422,
               "unit": "vendor",
-              "display": "-6.7422"
+              "display": "6.7422"
             }
           ]
         }
@@ -4125,15 +4125,15 @@
             "unit": "vendor"
           },
           "lr_peak_braking_force": {
-            "value": -0.9336,
+            "value": 0.9336,
             "unit": "vendor"
           },
           "lr_peak_propulsive_force": {
-            "value": -3.8572,
+            "value": 3.8572,
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
-            "value": -6.7422,
+            "value": 6.7422,
             "unit": "vendor"
           }
         }
@@ -4197,8 +4197,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 80,
-          "rank": 6,
+          "score": 93,
+          "rank": 5,
           "vendor": "Hawkin"
         }
       ],
@@ -4414,16 +4414,16 @@
             {
               "id": "lr_peak_braking_force",
               "label": "左右差: 制動最大力",
-              "value": -1.3699,
+              "value": 1.3699,
               "unit": "vendor",
-              "display": "-1.3699"
+              "display": "1.3699"
             },
             {
               "id": "lr_peak_propulsive_force",
               "label": "左右差: 推進最大力",
-              "value": -0.9794,
+              "value": 0.9794,
               "unit": "vendor",
-              "display": "-0.9794"
+              "display": "0.9794"
             },
             {
               "id": "lr_peak_landing_force",
@@ -4538,11 +4538,11 @@
             "unit": "vendor"
           },
           "lr_peak_braking_force": {
-            "value": -1.3699,
+            "value": 1.3699,
             "unit": "vendor"
           },
           "lr_peak_propulsive_force": {
-            "value": -0.9794,
+            "value": 0.9794,
             "unit": "vendor"
           },
           "lr_peak_landing_force": {
@@ -4610,8 +4610,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 82,
-          "rank": 4,
+          "score": 90,
+          "rank": 7,
           "vendor": "Hawkin"
         }
       ],
@@ -4827,16 +4827,16 @@
             {
               "id": "lr_peak_braking_force",
               "label": "左右差: 制動最大力",
-              "value": -3.335,
+              "value": 3.335,
               "unit": "vendor",
-              "display": "-3.335"
+              "display": "3.335"
             },
             {
               "id": "lr_peak_propulsive_force",
               "label": "左右差: 推進最大力",
-              "value": -2.7221,
+              "value": 2.7221,
               "unit": "vendor",
-              "display": "-2.7221"
+              "display": "2.7221"
             },
             {
               "id": "lr_peak_landing_force",
@@ -4951,11 +4951,11 @@
             "unit": "vendor"
           },
           "lr_peak_braking_force": {
-            "value": -3.335,
+            "value": 3.335,
             "unit": "vendor"
           },
           "lr_peak_propulsive_force": {
-            "value": -2.7221,
+            "value": 2.7221,
             "unit": "vendor"
           },
           "lr_peak_landing_force": {

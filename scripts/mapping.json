@@ -167,17 +167,20 @@
         "lr_peak_braking_force": {
           "label": "左右差: 制動最大力",
           "column": "L|R Peak Braking Force",
-          "unit": "vendor"
+          "unit": "vendor",
+          "transform": "abs"
         },
         "lr_peak_propulsive_force": {
           "label": "左右差: 推進最大力",
           "column": "L|R Peak Propulsive Force",
-          "unit": "vendor"
+          "unit": "vendor",
+          "transform": "abs"
         },
         "lr_peak_landing_force": {
           "label": "左右差: 着地最大力",
           "column": "L|R Peak Landing Force",
-          "unit": "vendor"
+          "unit": "vendor",
+          "transform": "abs"
         }
       }
     }

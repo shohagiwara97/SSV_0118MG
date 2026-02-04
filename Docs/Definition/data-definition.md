@@ -3,7 +3,7 @@
 - 作成日: 2026-01-11
 - 更新日: 2026-02-04
 - 版数: v0.2
-- 参照: Docs/ScreenImage/ScreenImage.png, Docs/ScreenImage/CoachData.png, Docs/revise.md
+- 参照: Docs/ScreenImage/ScreenImage.png, Docs/ScreenImage/CoachData.png, Docs/revise.md, Docs/Definition/calculation-logic.md
 
 ---
 
@@ -114,6 +114,7 @@
 - 順位はチーム内順位（1..N）を付与する。
 - 方向転換/疲労度/メンタル等は将来追加測定のため非表示とする。
 - SCR-03 も同じ 8カテゴリを表示し、スコアに差分ラベルを併記する。
+- 計算ロジックは `Docs/Definition/calculation-logic.md` を参照する。
 
 ---
 
