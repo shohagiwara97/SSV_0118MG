@@ -1,0 +1,16 @@
+{
+  "name": "SSV 1Day PWA",
+  "short_name": "SSV 1Day",
+  "description": "SSV 1Day Power & Movement Camp report mock",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F9FC",
+  "theme_color": "#1746FF",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
