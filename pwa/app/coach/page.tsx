@@ -55,8 +55,8 @@ const positionOrder: Record<string, number> = {
 };
 
 const comparePlayers = (
-  a: (typeof coachPlayerList)[number],
-  b: (typeof coachPlayerList)[number],
+  a: ReturnType<typeof buildCoachPlayerList>[number],
+  b: ReturnType<typeof buildCoachPlayerList>[number],
   key: CoachSortKey
 ) => {
   switch (key) {
