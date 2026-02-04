@@ -80,12 +80,12 @@ export default function DetailClient() {
       {
         id: "decel",
         label: "減速",
-        metricIds: ["agility_avg_decel", "agility_505_time"]
+        metricIds: ["agility_avg_decel"]
       },
       {
         id: "re_accel",
         label: "再加速",
-        metricIds: ["agility_avg_reaccel", "agility_0_5_time", "agility_total_time"]
+        metricIds: ["agility_avg_reaccel", "agility_0_5_time"]
       }
     ];
 
@@ -106,7 +106,7 @@ export default function DetailClient() {
                 <span className="label-chip text-[10px] uppercase tracking-[0.14em] text-accent">
                   {group.label}
                 </span>
-                <span className="text-[11px] text-muted">Agility</span>
+                <span className="text-[11px] text-muted">アジリティ</span>
               </div>
               {renderMetrics(groupMetrics)}
             </div>

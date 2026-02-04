@@ -81,7 +81,7 @@ export default function Home() {
 
       <section className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.24em] text-muted">Player</p>
+          <p className="text-xs uppercase tracking-[0.24em] text-muted">選手</p>
           <p className="text-sm text-ink sm:text-base">選手を選択</p>
         </div>
         <div className="w-full sm:max-w-xs">
@@ -110,7 +110,7 @@ export default function Home() {
       <section className="grid gap-5 sm:gap-6 md:grid-cols-[1.1fr_0.9fr]">
         <div className="neon-card rounded-2xl p-4 sm:rounded-3xl sm:p-6">
           <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:text-left">
-            <p className="text-xs text-muted sm:text-sm">KPI Overview</p>
+            <p className="text-xs text-muted sm:text-sm">KPIサマリー</p>
             <Link
               href={`/detail?player=${activePlayerId}`}
               className="rounded-full border border-accent/30 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-accent transition hover:border-accent hover:bg-accent hover:text-white sm:px-4 sm:py-1 sm:text-xs sm:tracking-[0.24em]"
@@ -130,15 +130,15 @@ export default function Home() {
           <div className="neon-divider mt-5 sm:mt-6" />
           <div className="mt-3 flex flex-col items-center gap-2 text-center text-[11px] text-muted sm:mt-4 sm:flex-row sm:justify-between sm:text-left sm:text-[11px]">
             <span>測定機器: Photon / Hawkin</span>
-            <span>更新: 2026.01.18</span>
+            <span>測定日: {reportEvent.date}</span>
           </div>
         </div>
 
         <div className="flex flex-col gap-4">
           <div className="neon-card rounded-2xl p-4 sm:rounded-3xl sm:p-6">
             <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-between sm:text-left">
-              <p className="text-xs text-muted sm:text-sm">Score Snapshot</p>
-              <span className="label-chip text-accent">Today</span>
+              <p className="text-xs text-muted sm:text-sm">スコアサマリー</p>
+              <span className="label-chip text-accent">今回</span>
             </div>
             <div className="summary-grid mt-4">
               {reportCategories.map((category) => (

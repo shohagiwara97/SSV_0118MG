@@ -146,41 +146,42 @@
 
 **セクション/項目（例）**
 - スプリント（Photon）
-  - Total time (s)
-  - Split time 5 m (s)
-  - Split time 10 m (s)
-  - Split time 15 m (s)
-  - Split time 20 m (s)
-  - Max speed (km/h)
-  - Acceleration (m/s²)
+  - 総合タイム
+  - 5m 到達タイム
+  - 10m 到達タイム
+  - 15m 到達タイム
+  - 20m 到達タイム
+  - 最大速度
+  - 加速度
 - アジリティ 5-0-5（Photon）
   - 同一カード内で「加速/減速/再加速」の小見出しを付けて区分する
   - 加速
-    - Average acceleration (m/s²)
-    - 5-0 time (s)
-    - Max speed (km/h)
+    - 平均加速度
+    - 進入5mタイム
+    - 最大速度
   - 減速
-    - Average deceleration (m/s²)
-    - 5-0-5 time (s)
+    - 平均減速度
   - 再加速
-    - Average re-acceleration (m/s²)
-    - 0-5 time (s)
-    - Total time (s)
+    - 平均再加速度
+    - 再加速5mタイム
 - ジャンプ（Hawkin CMJ）
-  - Jump Height
-  - Jump Momentum
-  - Countermovement Depth
-  - Flight Time
-  - Time To Takeoff
-- ストレングス（Hawkin CMJ）
-  - Braking RFD
+  - 跳躍高
+  - ジャンプモメンタム
+  - 沈み込み量
+  - 滞空時間
+  - 離地時間
 - パワー（Hawkin CMJ）
-  - Peak Propulsive Power
+  - 推進最大パワー
+  - 制動最大パワー
+  - 推進最大パワー（体重比）
+  - 制動最大パワー（体重比）
 - 安定性（Hawkin CMJ）
-  - Relative Peak Landing Force
-  - Peak Landing Force
+  - 着地最大力
+  - 着地最大力（体重比）
 - バランス・左右差（Hawkin CMJ）
-  - Peak Relative Propulsive Power
+  - 左右差: 制動最大力
+  - 左右差: 推進最大力
+  - 左右差: 着地最大力
 
 **操作**
 - 戻るで SCR-01 へ

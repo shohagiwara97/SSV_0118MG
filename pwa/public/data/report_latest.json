@@ -3,7 +3,7 @@
     "id": "meiji-gakuin-2026-01-18",
     "date": "2026-01-18"
   },
-  "generatedAt": "2026-02-04T12:45:50.536440",
+  "generatedAt": "2026-02-04T16:16:38.323256",
   "scoreRange": {
     "min": 70,
     "max": 95
@@ -67,8 +67,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 95,
-          "rank": 1,
+          "score": 79,
+          "rank": 8,
           "vendor": "Hawkin"
         }
       ],
@@ -80,49 +80,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.35,
               "unit": "s",
               "display": "4.35 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.19,
               "unit": "s",
               "display": "1.19 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.92,
               "unit": "s",
               "display": "1.92 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.56,
               "unit": "s",
               "display": "2.56 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.17,
               "unit": "s",
               "display": "3.17 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 31.6,
               "unit": "km/h",
               "display": "31.6 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 5.6,
               "unit": "m/s²",
               "display": "5.6 m/s²"
@@ -135,57 +135,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.41,
-              "unit": "s",
-              "display": "2.41 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.735,
-              "unit": "s",
-              "display": "3.735 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 21.1,
               "unit": "km/h",
               "display": "21.1 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.15,
               "unit": "m/s²",
               "display": "4.15 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.2,
               "unit": "m/s²",
               "display": "5.2 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 3.95,
               "unit": "m/s²",
               "display": "3.95 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.105,
               "unit": "s",
               "display": "1.105 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.3050000000000002,
               "unit": "s",
               "display": "1.3050000000000002 s"
@@ -199,35 +185,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.4153,
               "unit": "vendor",
               "display": "0.4153"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 223.5949,
               "unit": "vendor",
               "display": "223.5949"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.2877,
               "unit": "vendor",
               "display": "-0.2877"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.584,
               "unit": "vendor",
               "display": "0.584"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.656,
               "unit": "vendor",
               "display": "0.656"
@@ -235,44 +221,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 11512.3967,
-              "unit": "vendor",
-              "display": "11512.3967"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 63.6303,
-              "unit": "vendor",
-              "display": "63.6303"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 4984.0883,
               "unit": "vendor",
               "display": "4984.0883"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 871.5445,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 63.6303,
               "unit": "vendor",
-              "display": "871.5445"
+              "display": "63.6303"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -1641.5955,
+              "unit": "vendor",
+              "display": "-1641.5955"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -20.9577,
+              "unit": "vendor",
+              "display": "-20.9577"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 6697.0,
               "unit": "vendor",
               "display": "6697.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 871.5445,
+              "unit": "vendor",
+              "display": "871.5445"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": 0.0926,
+              "unit": "vendor",
+              "display": "0.0926"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": 0.0,
+              "unit": "vendor",
+              "display": "0.0"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": -1.538,
+              "unit": "vendor",
+              "display": "-1.538"
             }
           ]
         }
@@ -309,14 +337,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.41,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.735,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 21.1,
             "unit": "km/h"
@@ -363,10 +383,6 @@
             "value": 0.656,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 11512.3967,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 63.6303,
             "unit": "vendor"
@@ -375,12 +391,32 @@
             "value": 4984.0883,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -20.9577,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -1641.5955,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 871.5445,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 6697.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": 0.0926,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": 0.0,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": -1.538,
             "unit": "vendor"
           }
         }
@@ -444,8 +480,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 81,
-          "rank": 10,
+          "score": 86,
+          "rank": 2,
           "vendor": "Hawkin"
         }
       ],
@@ -457,49 +493,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.52,
               "unit": "s",
               "display": "4.52 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.27,
               "unit": "s",
               "display": "1.27 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 2.02,
               "unit": "s",
               "display": "2.02 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.69,
               "unit": "s",
               "display": "2.69 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.31,
               "unit": "s",
               "display": "3.31 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 30.4,
               "unit": "km/h",
               "display": "30.4 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.1,
               "unit": "m/s²",
               "display": "6.1 m/s²"
@@ -512,57 +548,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.31,
-              "unit": "s",
-              "display": "2.31 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.585,
-              "unit": "s",
-              "display": "3.585 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 20.549999999999997,
               "unit": "km/h",
               "display": "20.549999999999997 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.25,
               "unit": "m/s²",
               "display": "4.25 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.3,
               "unit": "m/s²",
               "display": "5.3 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 3.9000000000000004,
               "unit": "m/s²",
               "display": "3.9000000000000004 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.045,
               "unit": "s",
               "display": "1.045 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.27,
               "unit": "s",
               "display": "1.27 s"
@@ -576,35 +598,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.4249,
               "unit": "vendor",
               "display": "0.4249"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 194.2652,
               "unit": "vendor",
               "display": "194.2652"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.3757,
               "unit": "vendor",
               "display": "-0.3757"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.598,
               "unit": "vendor",
               "display": "0.598"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.826,
               "unit": "vendor",
               "display": "0.826"
@@ -612,44 +634,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 3901.5544,
-              "unit": "vendor",
-              "display": "3901.5544"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 57.1921,
-              "unit": "vendor",
-              "display": "57.1921"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 3847.8998,
               "unit": "vendor",
               "display": "3847.8998"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 566.1958,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 57.1921,
               "unit": "vendor",
-              "display": "566.1958"
+              "display": "57.1921"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -1121.7921,
+              "unit": "vendor",
+              "display": "-1121.7921"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -16.6734,
+              "unit": "vendor",
+              "display": "-16.6734"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 3737.0,
               "unit": "vendor",
               "display": "3737.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 566.1958,
+              "unit": "vendor",
+              "display": "566.1958"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": -7.5618,
+              "unit": "vendor",
+              "display": "-7.5618"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": -3.5526,
+              "unit": "vendor",
+              "display": "-3.5526"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": -1.9534,
+              "unit": "vendor",
+              "display": "-1.9534"
             }
           ]
         }
@@ -686,14 +750,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.31,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.585,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 20.549999999999997,
             "unit": "km/h"
@@ -740,10 +796,6 @@
             "value": 0.826,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 3901.5544,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 57.1921,
             "unit": "vendor"
@@ -752,12 +804,32 @@
             "value": 3847.8998,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -16.6734,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -1121.7921,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 566.1958,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 3737.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": -7.5618,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": -3.5526,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": -1.9534,
             "unit": "vendor"
           }
         }
@@ -821,8 +893,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 75,
-          "rank": 11,
+          "score": 95,
+          "rank": 1,
           "vendor": "Hawkin"
         }
       ],
@@ -834,49 +906,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.36,
               "unit": "s",
               "display": "4.36 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.16,
               "unit": "s",
               "display": "1.16 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.91,
               "unit": "s",
               "display": "1.91 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.55,
               "unit": "s",
               "display": "2.55 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.18,
               "unit": "s",
               "display": "3.18 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 30.8,
               "unit": "km/h",
               "display": "30.8 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.1,
               "unit": "m/s²",
               "display": "6.1 m/s²"
@@ -889,57 +961,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.335,
-              "unit": "s",
-              "display": "2.335 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.56,
-              "unit": "s",
-              "display": "3.56 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 21.15,
               "unit": "km/h",
               "display": "21.15 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.6,
               "unit": "m/s²",
               "display": "4.6 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.699999999999999,
               "unit": "m/s²",
               "display": "5.699999999999999 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 3.45,
               "unit": "m/s²",
               "display": "3.45 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.025,
               "unit": "s",
               "display": "1.025 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.305,
               "unit": "s",
               "display": "1.305 s"
@@ -953,35 +1011,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.316,
               "unit": "vendor",
               "display": "0.316"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 163.6305,
               "unit": "vendor",
               "display": "163.6305"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.2499,
               "unit": "vendor",
               "display": "-0.2499"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.528,
               "unit": "vendor",
               "display": "0.528"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.706,
               "unit": "vendor",
               "display": "0.706"
@@ -989,44 +1047,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 4844.1558,
-              "unit": "vendor",
-              "display": "4844.1558"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 51.0383,
-              "unit": "vendor",
-              "display": "51.0383"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 3354.2976,
               "unit": "vendor",
               "display": "3354.2976"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 516.3442,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 51.0383,
               "unit": "vendor",
-              "display": "516.3442"
+              "display": "51.0383"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -825.7003,
+              "unit": "vendor",
+              "display": "-825.7003"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -12.5637,
+              "unit": "vendor",
+              "display": "-12.5637"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 3329.0,
               "unit": "vendor",
               "display": "3329.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 516.3442,
+              "unit": "vendor",
+              "display": "516.3442"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": -16.523,
+              "unit": "vendor",
+              "display": "-16.523"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": -4.5561,
+              "unit": "vendor",
+              "display": "-4.5561"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": -30.8501,
+              "unit": "vendor",
+              "display": "-30.8501"
             }
           ]
         }
@@ -1063,14 +1163,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.335,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.56,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 21.15,
             "unit": "km/h"
@@ -1117,10 +1209,6 @@
             "value": 0.706,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 4844.1558,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 51.0383,
             "unit": "vendor"
@@ -1129,12 +1217,32 @@
             "value": 3354.2976,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -12.5637,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -825.7003,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 516.3442,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 3329.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": -16.523,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": -4.5561,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": -30.8501,
             "unit": "vendor"
           }
         }
@@ -1198,8 +1306,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 81,
-          "rank": 9,
+          "score": 82,
+          "rank": 5,
           "vendor": "Hawkin"
         }
       ],
@@ -1211,49 +1319,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.5,
               "unit": "s",
               "display": "4.5 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.24,
               "unit": "s",
               "display": "1.24 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.99,
               "unit": "s",
               "display": "1.99 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.64,
               "unit": "s",
               "display": "2.64 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.27,
               "unit": "s",
               "display": "3.27 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 30.2,
               "unit": "km/h",
               "display": "30.2 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.1,
               "unit": "m/s²",
               "display": "6.1 m/s²"
@@ -1266,57 +1374,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.2649999999999997,
-              "unit": "s",
-              "display": "2.2649999999999997 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.535,
-              "unit": "s",
-              "display": "3.535 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 20.85,
               "unit": "km/h",
               "display": "20.85 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.3,
               "unit": "m/s²",
               "display": "4.3 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 6.0,
               "unit": "m/s²",
               "display": "6.0 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 3.3,
               "unit": "m/s²",
               "display": "3.3 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 0.98,
               "unit": "s",
               "display": "0.98 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.2850000000000001,
               "unit": "s",
               "display": "1.2850000000000001 s"
@@ -1330,35 +1424,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.3935,
               "unit": "vendor",
               "display": "0.3935"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 190.7693,
               "unit": "vendor",
               "display": "190.7693"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.308,
               "unit": "vendor",
               "display": "-0.308"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.583,
               "unit": "vendor",
               "display": "0.583"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.734,
               "unit": "vendor",
               "display": "0.734"
@@ -1366,44 +1460,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 9747.8992,
-              "unit": "vendor",
-              "display": "9747.8992"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 56.4896,
-              "unit": "vendor",
-              "display": "56.4896"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 3878.5637,
               "unit": "vendor",
               "display": "3878.5637"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 817.0107,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 56.4896,
               "unit": "vendor",
-              "display": "817.0107"
+              "display": "56.4896"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -2060.5683,
+              "unit": "vendor",
+              "display": "-2060.5683"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -30.0113,
+              "unit": "vendor",
+              "display": "-30.0113"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 5503.0,
               "unit": "vendor",
               "display": "5503.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 817.0107,
+              "unit": "vendor",
+              "display": "817.0107"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": -3.0591,
+              "unit": "vendor",
+              "display": "-3.0591"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": -2.4496,
+              "unit": "vendor",
+              "display": "-2.4496"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": 5.7968,
+              "unit": "vendor",
+              "display": "5.7968"
             }
           ]
         }
@@ -1440,14 +1576,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.2649999999999997,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.535,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 20.85,
             "unit": "km/h"
@@ -1494,10 +1622,6 @@
             "value": 0.734,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 9747.8992,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 56.4896,
             "unit": "vendor"
@@ -1506,12 +1630,32 @@
             "value": 3878.5637,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -30.0113,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -2060.5683,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 817.0107,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 5503.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": -3.0591,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": -2.4496,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": 5.7968,
             "unit": "vendor"
           }
         }
@@ -1575,8 +1719,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 82,
-          "rank": 8,
+          "score": 78,
+          "rank": 10,
           "vendor": "Hawkin"
         }
       ],
@@ -1588,49 +1732,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.43,
               "unit": "s",
               "display": "4.43 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.27,
               "unit": "s",
               "display": "1.27 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 2.01,
               "unit": "s",
               "display": "2.01 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.65,
               "unit": "s",
               "display": "2.65 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.26,
               "unit": "s",
               "display": "3.26 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 31.6,
               "unit": "km/h",
               "display": "31.6 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.3,
               "unit": "m/s²",
               "display": "6.3 m/s²"
@@ -1643,57 +1787,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.2649999999999997,
-              "unit": "s",
-              "display": "2.2649999999999997 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.525,
-              "unit": "s",
-              "display": "3.525 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 20.4,
               "unit": "km/h",
               "display": "20.4 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.15,
               "unit": "m/s²",
               "display": "4.15 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.5,
               "unit": "m/s²",
               "display": "5.5 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 4.0,
               "unit": "m/s²",
               "display": "4.0 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.045,
               "unit": "s",
               "display": "1.045 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.22,
               "unit": "s",
               "display": "1.22 s"
@@ -1707,35 +1837,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.3863,
               "unit": "vendor",
               "display": "0.3863"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 187.5442,
               "unit": "vendor",
               "display": "187.5442"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.3129,
               "unit": "vendor",
               "display": "-0.3129"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.584,
               "unit": "vendor",
               "display": "0.584"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.677,
               "unit": "vendor",
               "display": "0.677"
@@ -1743,44 +1873,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 7647.482,
-              "unit": "vendor",
-              "display": "7647.482"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 57.5218,
-              "unit": "vendor",
-              "display": "57.5218"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 3918.4802,
               "unit": "vendor",
               "display": "3918.4802"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 444.7284,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 57.5218,
               "unit": "vendor",
-              "display": "444.7284"
+              "display": "57.5218"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -1682.7273,
+              "unit": "vendor",
+              "display": "-1682.7273"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -24.7018,
+              "unit": "vendor",
+              "display": "-24.7018"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 2972.0,
               "unit": "vendor",
               "display": "2972.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 444.7284,
+              "unit": "vendor",
+              "display": "444.7284"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": 0.8092,
+              "unit": "vendor",
+              "display": "0.8092"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": 0.6369,
+              "unit": "vendor",
+              "display": "0.6369"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": 2.8937,
+              "unit": "vendor",
+              "display": "2.8937"
             }
           ]
         }
@@ -1817,14 +1989,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.2649999999999997,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.525,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 20.4,
             "unit": "km/h"
@@ -1871,10 +2035,6 @@
             "value": 0.677,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 7647.482,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 57.5218,
             "unit": "vendor"
@@ -1883,12 +2043,32 @@
             "value": 3918.4802,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -24.7018,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -1682.7273,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 444.7284,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 2972.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": 0.8092,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": 0.6369,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": 2.8937,
             "unit": "vendor"
           }
         }
@@ -1952,8 +2132,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 92,
-          "rank": 2,
+          "score": 85,
+          "rank": 3,
           "vendor": "Hawkin"
         }
       ],
@@ -1965,49 +2145,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.45,
               "unit": "s",
               "display": "4.45 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.21,
               "unit": "s",
               "display": "1.21 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.95,
               "unit": "s",
               "display": "1.95 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.61,
               "unit": "s",
               "display": "2.61 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.23,
               "unit": "s",
               "display": "3.23 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 30.0,
               "unit": "km/h",
               "display": "30.0 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.5,
               "unit": "m/s²",
               "display": "6.5 m/s²"
@@ -2020,57 +2200,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.19,
-              "unit": "s",
-              "display": "2.19 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.425,
-              "unit": "s",
-              "display": "3.425 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 21.15,
               "unit": "km/h",
               "display": "21.15 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.45,
               "unit": "m/s²",
               "display": "4.45 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.95,
               "unit": "m/s²",
               "display": "5.95 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 4.05,
               "unit": "m/s²",
               "display": "4.05 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.01,
               "unit": "s",
               "display": "1.01 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.19,
               "unit": "s",
               "display": "1.19 s"
@@ -2084,35 +2250,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.4462,
               "unit": "vendor",
               "display": "0.4462"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 220.9615,
               "unit": "vendor",
               "display": "220.9615"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.3116,
               "unit": "vendor",
               "display": "-0.3116"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.62,
               "unit": "vendor",
               "display": "0.62"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.727,
               "unit": "vendor",
               "display": "0.727"
@@ -2120,44 +2286,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 3577.6699,
-              "unit": "vendor",
-              "display": "3577.6699"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 63.3903,
-              "unit": "vendor",
-              "display": "63.3903"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 4733.7757,
               "unit": "vendor",
               "display": "4733.7757"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 505.7482,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 63.3903,
               "unit": "vendor",
-              "display": "505.7482"
+              "display": "63.3903"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -1071.032,
+              "unit": "vendor",
+              "display": "-1071.032"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -14.3423,
+              "unit": "vendor",
+              "display": "-14.3423"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 3705.0,
               "unit": "vendor",
               "display": "3705.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 505.7482,
+              "unit": "vendor",
+              "display": "505.7482"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": -5.9864,
+              "unit": "vendor",
+              "display": "-5.9864"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": -1.2793,
+              "unit": "vendor",
+              "display": "-1.2793"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": -16.6532,
+              "unit": "vendor",
+              "display": "-16.6532"
             }
           ]
         }
@@ -2194,14 +2402,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.19,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.425,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 21.15,
             "unit": "km/h"
@@ -2248,10 +2448,6 @@
             "value": 0.727,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 3577.6699,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 63.3903,
             "unit": "vendor"
@@ -2260,12 +2456,32 @@
             "value": 4733.7757,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -14.3423,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -1071.032,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 505.7482,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 3705.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": -5.9864,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": -1.2793,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": -16.6532,
             "unit": "vendor"
           }
         }
@@ -2329,8 +2545,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 84,
-          "rank": 6,
+          "score": 78,
+          "rank": 9,
           "vendor": "Hawkin"
         }
       ],
@@ -2342,49 +2558,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.32,
               "unit": "s",
               "display": "4.32 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.15,
               "unit": "s",
               "display": "1.15 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.89,
               "unit": "s",
               "display": "1.89 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.54,
               "unit": "s",
               "display": "2.54 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.14,
               "unit": "s",
               "display": "3.14 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 31.2,
               "unit": "km/h",
               "display": "31.2 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.6,
               "unit": "m/s²",
               "display": "6.6 m/s²"
@@ -2397,57 +2613,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.2649999999999997,
-              "unit": "s",
-              "display": "2.2649999999999997 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.4800000000000004,
-              "unit": "s",
-              "display": "3.4800000000000004 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 21.05,
               "unit": "km/h",
               "display": "21.05 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.5,
               "unit": "m/s²",
               "display": "4.5 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.2,
               "unit": "m/s²",
               "display": "5.2 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 4.35,
               "unit": "m/s²",
               "display": "4.35 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.0950000000000002,
               "unit": "s",
               "display": "1.0950000000000002 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.17,
               "unit": "s",
               "display": "1.17 s"
@@ -2461,35 +2663,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.4226,
               "unit": "vendor",
               "display": "0.4226"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 192.8689,
               "unit": "vendor",
               "display": "192.8689"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.3244,
               "unit": "vendor",
               "display": "-0.3244"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.605,
               "unit": "vendor",
               "display": "0.605"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.632,
               "unit": "vendor",
               "display": "0.632"
@@ -2497,44 +2699,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 7669.0141,
-              "unit": "vendor",
-              "display": "7669.0141"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 61.0391,
-              "unit": "vendor",
-              "display": "61.0391"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 4088.5363,
               "unit": "vendor",
               "display": "4088.5363"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 561.8662,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 61.0391,
               "unit": "vendor",
-              "display": "561.8662"
+              "display": "61.0391"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -1519.5521,
+              "unit": "vendor",
+              "display": "-1519.5521"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -22.6859,
+              "unit": "vendor",
+              "display": "-22.6859"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 3692.0,
               "unit": "vendor",
               "display": "3692.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 561.8662,
+              "unit": "vendor",
+              "display": "561.8662"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": 0.5152,
+              "unit": "vendor",
+              "display": "0.5152"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": 3.7844,
+              "unit": "vendor",
+              "display": "3.7844"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": -44.1495,
+              "unit": "vendor",
+              "display": "-44.1495"
             }
           ]
         }
@@ -2571,14 +2815,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.2649999999999997,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.4800000000000004,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 21.05,
             "unit": "km/h"
@@ -2625,10 +2861,6 @@
             "value": 0.632,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 7669.0141,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 61.0391,
             "unit": "vendor"
@@ -2637,12 +2869,32 @@
             "value": 4088.5363,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -22.6859,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -1519.5521,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 561.8662,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 3692.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": 0.5152,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": 3.7844,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": -44.1495,
             "unit": "vendor"
           }
         }
@@ -2706,8 +2958,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 90,
-          "rank": 3,
+          "score": 75,
+          "rank": 11,
           "vendor": "Hawkin"
         }
       ],
@@ -2719,49 +2971,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.46,
               "unit": "s",
               "display": "4.46 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.23,
               "unit": "s",
               "display": "1.23 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.97,
               "unit": "s",
               "display": "1.97 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.64,
               "unit": "s",
               "display": "2.64 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.26,
               "unit": "s",
               "display": "3.26 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 31.0,
               "unit": "km/h",
               "display": "31.0 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.2,
               "unit": "m/s²",
               "display": "6.2 m/s²"
@@ -2774,57 +3026,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.365,
-              "unit": "s",
-              "display": "2.365 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.615,
-              "unit": "s",
-              "display": "3.615 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 21.1,
               "unit": "km/h",
               "display": "21.1 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.55,
               "unit": "m/s²",
               "display": "4.55 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.5,
               "unit": "m/s²",
               "display": "5.5 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 3.1500000000000004,
               "unit": "m/s²",
               "display": "3.1500000000000004 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.045,
               "unit": "s",
               "display": "1.045 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.3199999999999998,
               "unit": "s",
               "display": "1.3199999999999998 s"
@@ -2838,35 +3076,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.4397,
               "unit": "vendor",
               "display": "0.4397"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 234.8844,
               "unit": "vendor",
               "display": "234.8844"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.3693,
               "unit": "vendor",
               "display": "-0.3693"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.618,
               "unit": "vendor",
               "display": "0.618"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.722,
               "unit": "vendor",
               "display": "0.722"
@@ -2874,44 +3112,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 8640.0,
-              "unit": "vendor",
-              "display": "8640.0"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 57.293,
-              "unit": "vendor",
-              "display": "57.293"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 4581.491,
               "unit": "vendor",
               "display": "4581.491"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 638.7785,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 57.293,
               "unit": "vendor",
-              "display": "638.7785"
+              "display": "57.293"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -2014.5442,
+              "unit": "vendor",
+              "display": "-2014.5442"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -25.1925,
+              "unit": "vendor",
+              "display": "-25.1925"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 5011.0,
               "unit": "vendor",
               "display": "5011.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 638.7785,
+              "unit": "vendor",
+              "display": "638.7785"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": 3.9924,
+              "unit": "vendor",
+              "display": "3.9924"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": 4.9952,
+              "unit": "vendor",
+              "display": "4.9952"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": 2.6941,
+              "unit": "vendor",
+              "display": "2.6941"
             }
           ]
         }
@@ -2948,14 +3228,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.365,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.615,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 21.1,
             "unit": "km/h"
@@ -3002,10 +3274,6 @@
             "value": 0.722,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 8640.0,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 57.293,
             "unit": "vendor"
@@ -3014,12 +3282,32 @@
             "value": 4581.491,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -25.1925,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -2014.5442,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 638.7785,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 5011.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": 3.9924,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": 4.9952,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": 2.6941,
             "unit": "vendor"
           }
         }
@@ -3096,49 +3384,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.52,
               "unit": "s",
               "display": "4.52 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.24,
               "unit": "s",
               "display": "1.24 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.98,
               "unit": "s",
               "display": "1.98 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.64,
               "unit": "s",
               "display": "2.64 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.27,
               "unit": "s",
               "display": "3.27 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 29.7,
               "unit": "km/h",
               "display": "29.7 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.2,
               "unit": "m/s²",
               "display": "6.2 m/s²"
@@ -3151,57 +3439,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.3449999999999998,
-              "unit": "s",
-              "display": "2.3449999999999998 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.59,
-              "unit": "s",
-              "display": "3.59 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 20.8,
               "unit": "km/h",
               "display": "20.8 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.45,
               "unit": "m/s²",
               "display": "4.45 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.35,
               "unit": "m/s²",
               "display": "5.35 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 3.6999999999999997,
               "unit": "m/s²",
               "display": "3.6999999999999997 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.05,
               "unit": "s",
               "display": "1.05 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.285,
               "unit": "s",
               "display": "1.285 s"
@@ -3215,35 +3489,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.3406,
               "unit": "vendor",
               "display": "0.3406"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 141.2342,
               "unit": "vendor",
               "display": "141.2342"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.3042,
               "unit": "vendor",
               "display": "-0.3042"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.524,
               "unit": "vendor",
               "display": "0.524"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 1.16,
               "unit": "vendor",
               "display": "1.16"
@@ -3251,44 +3525,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 1529.4118,
-              "unit": "vendor",
-              "display": "1529.4118"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 54.0117,
-              "unit": "vendor",
-              "display": "54.0117"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 2951.0713,
               "unit": "vendor",
               "display": "2951.0713"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 488.9971,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 54.0117,
               "unit": "vendor",
-              "display": "488.9971"
+              "display": "54.0117"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -305.4707,
+              "unit": "vendor",
+              "display": "-305.4707"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -5.5909,
+              "unit": "vendor",
+              "display": "-5.5909"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 2621.0,
               "unit": "vendor",
               "display": "2621.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 488.9971,
+              "unit": "vendor",
+              "display": "488.9971"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": 8.8889,
+              "unit": "vendor",
+              "display": "8.8889"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": 3.3951,
+              "unit": "vendor",
+              "display": "3.3951"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": -1.4117,
+              "unit": "vendor",
+              "display": "-1.4117"
             }
           ]
         }
@@ -3325,14 +3641,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.3449999999999998,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.59,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 20.8,
             "unit": "km/h"
@@ -3379,10 +3687,6 @@
             "value": 1.16,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 1529.4118,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 54.0117,
             "unit": "vendor"
@@ -3391,12 +3695,32 @@
             "value": 2951.0713,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -5.5909,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -305.4707,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 488.9971,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 2621.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": 8.8889,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": 3.3951,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": -1.4117,
             "unit": "vendor"
           }
         }
@@ -3460,8 +3784,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 86,
-          "rank": 5,
+          "score": 80,
+          "rank": 7,
           "vendor": "Hawkin"
         }
       ],
@@ -3473,49 +3797,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.45,
               "unit": "s",
               "display": "4.45 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.29,
               "unit": "s",
               "display": "1.29 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 2.03,
               "unit": "s",
               "display": "2.03 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.67,
               "unit": "s",
               "display": "2.67 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.27,
               "unit": "s",
               "display": "3.27 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 31.5,
               "unit": "km/h",
               "display": "31.5 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 5.9,
               "unit": "m/s²",
               "display": "5.9 m/s²"
@@ -3528,57 +3852,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.225,
-              "unit": "s",
-              "display": "2.225 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.54,
-              "unit": "s",
-              "display": "3.54 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 21.549999999999997,
               "unit": "km/h",
               "display": "21.549999999999997 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.35,
               "unit": "m/s²",
               "display": "4.35 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.5,
               "unit": "m/s²",
               "display": "5.5 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 4.2,
               "unit": "m/s²",
               "display": "4.2 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.0350000000000001,
               "unit": "s",
               "display": "1.0350000000000001 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.19,
               "unit": "s",
               "display": "1.19 s"
@@ -3592,35 +3902,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.4344,
               "unit": "vendor",
               "display": "0.4344"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 186.0068,
               "unit": "vendor",
               "display": "186.0068"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.2796,
               "unit": "vendor",
               "display": "-0.2796"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.605,
               "unit": "vendor",
               "display": "0.605"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.579,
               "unit": "vendor",
               "display": "0.579"
@@ -3628,44 +3938,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 9059.8291,
-              "unit": "vendor",
-              "display": "9059.8291"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 67.149,
-              "unit": "vendor",
-              "display": "67.149"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 4278.3539,
               "unit": "vendor",
               "display": "4278.3539"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 875.6268,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 67.149,
               "unit": "vendor",
-              "display": "875.6268"
+              "display": "67.149"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -1841.8752,
+              "unit": "vendor",
+              "display": "-1841.8752"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -28.9083,
+              "unit": "vendor",
+              "display": "-28.9083"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 5473.0,
               "unit": "vendor",
               "display": "5473.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 875.6268,
+              "unit": "vendor",
+              "display": "875.6268"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": -0.9336,
+              "unit": "vendor",
+              "display": "-0.9336"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": -3.8572,
+              "unit": "vendor",
+              "display": "-3.8572"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": -6.7422,
+              "unit": "vendor",
+              "display": "-6.7422"
             }
           ]
         }
@@ -3702,14 +4054,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.225,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.54,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 21.549999999999997,
             "unit": "km/h"
@@ -3756,10 +4100,6 @@
             "value": 0.579,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 9059.8291,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 67.149,
             "unit": "vendor"
@@ -3768,12 +4108,32 @@
             "value": 4278.3539,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -28.9083,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -1841.8752,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 875.6268,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 5473.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": -0.9336,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": -3.8572,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": -6.7422,
             "unit": "vendor"
           }
         }
@@ -3837,8 +4197,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 90,
-          "rank": 4,
+          "score": 80,
+          "rank": 6,
           "vendor": "Hawkin"
         }
       ],
@@ -3850,49 +4210,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.26,
               "unit": "s",
               "display": "4.26 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.17,
               "unit": "s",
               "display": "1.17 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.89,
               "unit": "s",
               "display": "1.89 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.51,
               "unit": "s",
               "display": "2.51 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.1,
               "unit": "s",
               "display": "3.1 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 31.7,
               "unit": "km/h",
               "display": "31.7 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.8,
               "unit": "m/s²",
               "display": "6.8 m/s²"
@@ -3905,57 +4265,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.1900000000000004,
-              "unit": "s",
-              "display": "2.1900000000000004 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.37,
-              "unit": "s",
-              "display": "3.37 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 21.8,
               "unit": "km/h",
               "display": "21.8 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.95,
               "unit": "m/s²",
               "display": "4.95 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 6.0,
               "unit": "m/s²",
               "display": "6.0 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 4.0,
               "unit": "m/s²",
               "display": "4.0 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.005,
               "unit": "s",
               "display": "1.005 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.18,
               "unit": "s",
               "display": "1.18 s"
@@ -3969,35 +4315,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.4768,
               "unit": "vendor",
               "display": "0.4768"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 212.2137,
               "unit": "vendor",
               "display": "212.2137"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.3151,
               "unit": "vendor",
               "display": "-0.3151"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.645,
               "unit": "vendor",
               "display": "0.645"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.647,
               "unit": "vendor",
               "display": "0.647"
@@ -4005,44 +4351,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 11016.2602,
-              "unit": "vendor",
-              "display": "11016.2602"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 65.5806,
-              "unit": "vendor",
-              "display": "65.5806"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 4550.2275,
               "unit": "vendor",
               "display": "4550.2275"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 1027.8335,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 65.5806,
               "unit": "vendor",
-              "display": "1027.8335"
+              "display": "65.5806"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -1973.7396,
+              "unit": "vendor",
+              "display": "-1973.7396"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -28.4467,
+              "unit": "vendor",
+              "display": "-28.4467"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 6996.0,
               "unit": "vendor",
               "display": "6996.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 1027.8335,
+              "unit": "vendor",
+              "display": "1027.8335"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": -1.3699,
+              "unit": "vendor",
+              "display": "-1.3699"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": -0.9794,
+              "unit": "vendor",
+              "display": "-0.9794"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": 2.9731,
+              "unit": "vendor",
+              "display": "2.9731"
             }
           ]
         }
@@ -4079,14 +4467,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.1900000000000004,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.37,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 21.8,
             "unit": "km/h"
@@ -4133,10 +4513,6 @@
             "value": 0.647,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 11016.2602,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 65.5806,
             "unit": "vendor"
@@ -4145,12 +4521,32 @@
             "value": 4550.2275,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -28.4467,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -1973.7396,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 1027.8335,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 6996.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": -1.3699,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": -0.9794,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": 2.9731,
             "unit": "vendor"
           }
         }
@@ -4214,8 +4610,8 @@
         {
           "id": "balance_lr",
           "label": "バランス・左右差",
-          "score": 83,
-          "rank": 7,
+          "score": 82,
+          "rank": 4,
           "vendor": "Hawkin"
         }
       ],
@@ -4227,49 +4623,49 @@
           "metrics": [
             {
               "id": "sprint_total_time",
-              "label": "Total time (s)",
+              "label": "総合タイム",
               "value": 4.27,
               "unit": "s",
               "display": "4.27 s"
             },
             {
               "id": "sprint_split_5m",
-              "label": "Split time 5 m (s)",
+              "label": "5m 到達タイム",
               "value": 1.14,
               "unit": "s",
               "display": "1.14 s"
             },
             {
               "id": "sprint_split_10m",
-              "label": "Split time 10 m (s)",
+              "label": "10m 到達タイム",
               "value": 1.88,
               "unit": "s",
               "display": "1.88 s"
             },
             {
               "id": "sprint_split_15m",
-              "label": "Split time 15 m (s)",
+              "label": "15m 到達タイム",
               "value": 2.51,
               "unit": "s",
               "display": "2.51 s"
             },
             {
               "id": "sprint_split_20m",
-              "label": "Split time 20 m (s)",
+              "label": "20m 到達タイム",
               "value": 3.11,
               "unit": "s",
               "display": "3.11 s"
             },
             {
               "id": "sprint_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 32.2,
               "unit": "km/h",
               "display": "32.2 km/h"
             },
             {
               "id": "sprint_accel",
-              "label": "Acceleration (m/s²)",
+              "label": "加速度",
               "value": 6.8,
               "unit": "m/s²",
               "display": "6.8 m/s²"
@@ -4282,57 +4678,43 @@
           "vendor": "PHOTON",
           "metrics": [
             {
-              "id": "agility_505_time",
-              "label": "5-0-5 time (s)",
-              "value": 2.135,
-              "unit": "s",
-              "display": "2.135 s"
-            },
-            {
-              "id": "agility_total_time",
-              "label": "Total time (s)",
-              "value": 3.325,
-              "unit": "s",
-              "display": "3.325 s"
-            },
-            {
               "id": "agility_max_speed",
-              "label": "Max speed (km/h)",
+              "label": "最大速度",
               "value": 21.1,
               "unit": "km/h",
               "display": "21.1 km/h"
             },
             {
               "id": "agility_avg_accel",
-              "label": "Average acceleration (m/s²)",
+              "label": "平均加速度",
               "value": 4.699999999999999,
               "unit": "m/s²",
               "display": "4.699999999999999 m/s²"
             },
             {
               "id": "agility_avg_decel",
-              "label": "Average deceleration (m/s²)",
+              "label": "平均減速度",
               "value": 5.75,
               "unit": "m/s²",
               "display": "5.75 m/s²"
             },
             {
               "id": "agility_avg_reaccel",
-              "label": "Average re-acceleration (m/s²)",
+              "label": "平均再加速度",
               "value": 4.25,
               "unit": "m/s²",
               "display": "4.25 m/s²"
             },
             {
               "id": "agility_5_0_time",
-              "label": "5-0 time (s)",
+              "label": "進入5mタイム",
               "value": 1.01,
               "unit": "s",
               "display": "1.01 s"
             },
             {
               "id": "agility_0_5_time",
-              "label": "0-5 time (s)",
+              "label": "再加速5mタイム",
               "value": 1.125,
               "unit": "s",
               "display": "1.125 s"
@@ -4346,35 +4728,35 @@
           "metrics": [
             {
               "id": "jump_height",
-              "label": "Jump Height",
+              "label": "跳躍高",
               "value": 0.3989,
               "unit": "vendor",
               "display": "0.3989"
             },
             {
               "id": "jump_momentum",
-              "label": "Jump Momentum",
+              "label": "ジャンプモメンタム",
               "value": 191.6556,
               "unit": "vendor",
               "display": "191.6556"
             },
             {
               "id": "countermovement_depth",
-              "label": "Countermovement Depth",
+              "label": "沈み込み量",
               "value": -0.2773,
               "unit": "vendor",
               "display": "-0.2773"
             },
             {
               "id": "flight_time",
-              "label": "Flight Time",
+              "label": "滞空時間",
               "value": 0.619,
               "unit": "vendor",
               "display": "0.619"
             },
             {
               "id": "time_to_takeoff",
-              "label": "Time To Takeoff",
+              "label": "離地時間",
               "value": 0.574,
               "unit": "vendor",
               "display": "0.574"
@@ -4382,44 +4764,86 @@
           ]
         },
         {
-          "id": "strength",
-          "title": "ストレングス/パワー/安定性/バランス・左右差",
+          "id": "power",
+          "title": "パワー",
           "vendor": "HAWKIN",
           "metrics": [
             {
-              "id": "braking_rfd",
-              "label": "Braking RFD",
-              "value": 10914.5299,
-              "unit": "vendor",
-              "display": "10914.5299"
-            },
-            {
-              "id": "peak_relative_propulsive_power",
-              "label": "Peak Relative Propulsive Power",
-              "value": 58.0352,
-              "unit": "vendor",
-              "display": "58.0352"
-            },
-            {
               "id": "peak_propulsive_power",
-              "label": "Peak Propulsive Power",
+              "label": "推進最大パワー",
               "value": 3975.9562,
               "unit": "vendor",
               "display": "3975.9562"
             },
             {
-              "id": "relative_peak_landing_force",
-              "label": "Relative Peak Landing Force",
-              "value": 679.3864,
+              "id": "peak_relative_propulsive_power",
+              "label": "推進最大パワー (体重比)",
+              "value": 58.0352,
               "unit": "vendor",
-              "display": "679.3864"
+              "display": "58.0352"
             },
             {
+              "id": "peak_braking_power",
+              "label": "制動最大パワー",
+              "value": -1728.8646,
+              "unit": "vendor",
+              "display": "-1728.8646"
+            },
+            {
+              "id": "peak_relative_braking_power",
+              "label": "制動最大パワー (体重比)",
+              "value": -25.2354,
+              "unit": "vendor",
+              "display": "-25.2354"
+            }
+          ]
+        },
+        {
+          "id": "stability",
+          "title": "安定性",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
               "id": "peak_landing_force",
-              "label": "Peak Landing Force",
+              "label": "着地最大力",
               "value": 4566.0,
               "unit": "vendor",
               "display": "4566.0"
+            },
+            {
+              "id": "relative_peak_landing_force",
+              "label": "着地最大力 (体重比)",
+              "value": 679.3864,
+              "unit": "vendor",
+              "display": "679.3864"
+            }
+          ]
+        },
+        {
+          "id": "balance_lr",
+          "title": "バランス・左右差",
+          "vendor": "HAWKIN",
+          "metrics": [
+            {
+              "id": "lr_peak_braking_force",
+              "label": "左右差: 制動最大力",
+              "value": -3.335,
+              "unit": "vendor",
+              "display": "-3.335"
+            },
+            {
+              "id": "lr_peak_propulsive_force",
+              "label": "左右差: 推進最大力",
+              "value": -2.7221,
+              "unit": "vendor",
+              "display": "-2.7221"
+            },
+            {
+              "id": "lr_peak_landing_force",
+              "label": "左右差: 着地最大力",
+              "value": 1.0074,
+              "unit": "vendor",
+              "display": "1.0074"
             }
           ]
         }
@@ -4456,14 +4880,6 @@
           }
         },
         "agility_505": {
-          "agility_505_time": {
-            "value": 2.135,
-            "unit": "s"
-          },
-          "agility_total_time": {
-            "value": 3.325,
-            "unit": "s"
-          },
           "agility_max_speed": {
             "value": 21.1,
             "unit": "km/h"
@@ -4510,10 +4926,6 @@
             "value": 0.574,
             "unit": "vendor"
           },
-          "braking_rfd": {
-            "value": 10914.5299,
-            "unit": "vendor"
-          },
           "peak_relative_propulsive_power": {
             "value": 58.0352,
             "unit": "vendor"
@@ -4522,12 +4934,32 @@
             "value": 3975.9562,
             "unit": "vendor"
           },
+          "peak_relative_braking_power": {
+            "value": -25.2354,
+            "unit": "vendor"
+          },
+          "peak_braking_power": {
+            "value": -1728.8646,
+            "unit": "vendor"
+          },
           "relative_peak_landing_force": {
             "value": 679.3864,
             "unit": "vendor"
           },
           "peak_landing_force": {
             "value": 4566.0,
+            "unit": "vendor"
+          },
+          "lr_peak_braking_force": {
+            "value": -3.335,
+            "unit": "vendor"
+          },
+          "lr_peak_propulsive_force": {
+            "value": -2.7221,
+            "unit": "vendor"
+          },
+          "lr_peak_landing_force": {
+            "value": 1.0074,
             "unit": "vendor"
           }
         }

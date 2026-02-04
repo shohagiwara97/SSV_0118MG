@@ -107,7 +107,7 @@
 | jump | ジャンプ | Hawkin CMJ | 主指標: Jump Height |
 | power | パワー | Hawkin CMJ | 主指標: Peak Propulsive Power |
 | stability | 安定性 | Hawkin CMJ | 主指標: Peak Landing Force |
-| balance_lr | バランス・左右差 | Hawkin CMJ | 主指標: Peak Propulsive Power（左右差指標は将来） |
+| balance_lr | バランス・左右差 | Hawkin CMJ | 主指標: L\|R Peak Braking Force（左右差は小さいほど良い） |
 
 補足:
 - スコアは同一イベント内の相対評価で 70〜95 に正規化する。
@@ -122,27 +122,25 @@
 ### 5.1 スプリント（Photon）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
-| sprint_total_time | Total time | s | number | `Total time (s)` |
-| sprint_split_5m | Split time 5 m | s | number | `Split time 5 m (s)` |
-| sprint_split_10m | Split time 10 m | s | number | `Split time 10 m (s)` |
-| sprint_split_15m | Split time 15 m | s | number | `Split time 15 m (s)` |
-| sprint_split_20m | Split time 20 m | s | number | `Split time 20 m (s)` |
-| sprint_max_speed | Max speed | km/h | number | `Max speed (km/h)` |
-| sprint_accel | Acceleration | m/s² | number | `Acceleration (m/s²)` |
+| sprint_total_time | 総合タイム | s | number | `Total time (s)` |
+| sprint_split_5m | 5m 到達タイム | s | number | `Split time 5 m (s)` |
+| sprint_split_10m | 10m 到達タイム | s | number | `Split time 10 m (s)` |
+| sprint_split_15m | 15m 到達タイム | s | number | `Split time 15 m (s)` |
+| sprint_split_20m | 20m 到達タイム | s | number | `Split time 20 m (s)` |
+| sprint_max_speed | 最大速度 | km/h | number | `Max speed (km/h)` |
+| sprint_accel | 加速度 | m/s² | number | `Acceleration (m/s²)` |
 
 - このテストでは「スピード（主指標: Max speed (km/h)）」を測定する。
 
 ### 5.2 アジリティ 5-0-5（Photon）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
-| agility_505_time | 5-0-5 time | s | number | `5-0-5 time (s)` |
-| agility_total_time | Total time | s | number | `Total time (s)` |
-| agility_max_speed | Max speed | km/h | number | `Max speed (km/h)` |
-| agility_avg_accel | Average acceleration | m/s² | number | `Average acceleration (m/s²)` |
-| agility_avg_decel | Average deceleration | m/s² | number | `Average deceleration (m/s²)` |
-| agility_avg_reaccel | Average re-acceleration | m/s² | number | `Average re-acceleration (m/s²)` |
-| agility_5_0_time | 5-0 time | s | number | `5-0 time (s)` |
-| agility_0_5_time | 0-5 time | s | number | `0-5 time (s)` |
+| agility_max_speed | 最大速度 | km/h | number | `Max speed (km/h)` |
+| agility_avg_accel | 平均加速度 | m/s² | number | `Average acceleration (m/s²)` |
+| agility_avg_decel | 平均減速度 | m/s² | number | `Average deceleration (m/s²)` |
+| agility_avg_reaccel | 平均再加速度 | m/s² | number | `Average re-acceleration (m/s²)` |
+| agility_5_0_time | 進入5mタイム | s | number | `5-0 time (s)` |
+| agility_0_5_time | 再加速5mタイム | s | number | `0-5 time (s)` |
 
 - このテストでは「加速/減速/再加速」を測定する（主指標: Average acceleration / Average deceleration / Average re-acceleration）。
 - 詳細画面では同一カード内で「加速/減速/再加速」の小見出しで区分表示する。
@@ -150,36 +148,37 @@
 ### 5.3 ジャンプ（Hawkin CMJ）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
-| jump_height | Jump Height | vendor | number | `Jump Height` |
-| jump_momentum | Jump Momentum | vendor | number | `Jump Momentum` |
-| countermovement_depth | Countermovement Depth | vendor | number | `Countermovement Depth` |
-| flight_time | Flight Time | vendor | number | `Flight Time` |
-| time_to_takeoff | Time To Takeoff | vendor | number | `Time To Takeoff` |
+| jump_height | 跳躍高 | vendor | number | `Jump Height` |
+| jump_momentum | ジャンプモメンタム | vendor | number | `Jump Momentum` |
+| countermovement_depth | 沈み込み量 | vendor | number | `Countermovement Depth` |
+| flight_time | 滞空時間 | vendor | number | `Flight Time` |
+| time_to_takeoff | 離地時間 | vendor | number | `Time To Takeoff` |
 
 - このテストでは「ジャンプ（主指標: Jump Height）」を測定する。
 
-### 5.4 ストレングス（Hawkin CMJ）
+### 5.4 パワー（Hawkin CMJ）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
-| braking_rfd | Braking RFD | vendor | number | `Braking RFD` |
+| peak_propulsive_power | 推進最大パワー | vendor | number | `Peak Propulsive Power` |
+| peak_relative_propulsive_power | 推進最大パワー（体重比） | vendor | number | `Peak Relative Propulsive Power` |
+| peak_braking_power | 制動最大パワー | vendor | number | `Peak Braking Power` |
+| peak_relative_braking_power | 制動最大パワー（体重比） | vendor | number | `Peak Relative Braking Power` |
 
-### 5.5 パワー（Hawkin CMJ）
+### 5.5 安定性（Hawkin CMJ）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
-| peak_propulsive_power | Peak Propulsive Power | vendor | number | `Peak Propulsive Power` |
+| peak_landing_force | 着地最大力 | vendor | number | `Peak Landing Force` |
+| relative_peak_landing_force | 着地最大力（体重比） | vendor | number | `Relative Peak Landing Force` |
 
-### 5.6 安定性（Hawkin CMJ）
+### 5.6 バランス・左右差（Hawkin CMJ）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
-| relative_peak_landing_force | Relative Peak Landing Force | vendor | number | `Relative Peak Landing Force` |
-| peak_landing_force | Peak Landing Force | vendor | number | `Peak Landing Force` |
+| lr_peak_braking_force | 左右差: 制動最大力 | vendor | number | `L|R Peak Braking Force` |
+| lr_peak_propulsive_force | 左右差: 推進最大力 | vendor | number | `L|R Peak Propulsive Force` |
+| lr_peak_landing_force | 左右差: 着地最大力 | vendor | number | `L|R Peak Landing Force` |
 
-### 5.7 バランス・左右差（Hawkin CMJ）
-| metric_id | 表示名 | 単位 | 形式 | 参照カラム |
-| --- | --- | --- | --- | --- |
-| peak_relative_propulsive_power | Peak Relative Propulsive Power | vendor | number | `Peak Relative Propulsive Power` |
-
-- このテストでは「パワー（主指標: Peak Propulsive Power）」「安定性（主指標: Peak Landing Force）」「バランス・左右差（主指標: Peak Relative Propulsive Power）」を測定する。
+- このテストでは「パワー（主指標: Peak Propulsive Power）」「安定性（主指標: Peak Landing Force）」「バランス・左右差（主指標: L|R Peak Braking Force）」を測定する。
+- L|R 指標は左右の差分で、左が大きいとプラス、右が大きいとマイナスとなる。UIでは左右差の絶対値として扱う。
 
 ---
 

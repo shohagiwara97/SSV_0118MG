@@ -19,8 +19,6 @@
 - このテストでは「スピード(主な項目:Max speed (km/h))」を測定
 
 - アジリティ：Data/Meiji Gakuin_505_0118.csvでの使用項目
-* 5-0-5 time (s):505タイム（切り返し含む主要KPI）
-* Total time (s):テスト全体の合計タイム
 * Max speed (km/h):最大速度（トップスピード到達能力の指標）
 * Average acceleration (m/s²):平均加速度（進入/再加速の能力）
 * Average deceleration (m/s²):平均減速度（ブレーキ能力）
@@ -38,7 +36,8 @@
 - このテストでは「ジャンプ力（主な項目:Jump Height）」を測定
 
 - ストレングス：Data/Meiji_Gakuin-01_18_26-01_18_26-_Countermovement_Jump.csvでの使用項目
-* Braking RFD:制動局面での力立ち上がりの速さ（素早い切り返し能力）
+* Peak Relative Braking Power:制動局面の最大パワー（体重比）
+* Peak Braking Power:制動局面の最大パワー（強いブレーキと切り返し）
 * Peak Relative Propulsive Power:推進局面の最大パワー（体重比）
 * Peak Propulsive Power:推進局面の最大パワー
 * Relative Peak Landing Force:安定性（力を足首にかけれているか）（体重比）
@@ -46,12 +45,11 @@
 - このテストでは「パワー(主な項目:Peak Propulsive Power)」と「安定性（主な項目:Peak Landing Force）」を測定
 
 - バランス・左右差：Data/Meiji_Gakuin-01_18_26-01_18_26-_Countermovement_Jump.csvでの使用項目
-* Braking RFD:制動局面での力立ち上がりの速さ（素早い切り返し能力）
-* Peak Relative Propulsive Power:推進局面の最大パワー（体重比）
-* Peak Propulsive Power:推進局面の最大パワー
-* Relative Peak Landing Force:安定性（力を足首にかけれているか）（体重比）
-* Peak Landing Force:安定性（力を足首にかけれているか）
-- このテストでは「バランス・左右差(主な項目:Peak Propulsive Power)」を測定
+- 以下項目では、左の方が数値が大きいとプラスの値に、右の方が数値が大きいとマイナスの値となり、左右の絶対値で表示されている。
+* L|R Peak Braking Force:左右の制動最大力の差（左右差/弱い側の特定）
+* L|R Peak Propulsive Force:左右の推進最大力の差（左右差/弱い側の特定）
+* L|R Peak Landing Force:左右の着地衝撃ピーク差（左右差/弱い側の特定）
+- このテストでは「バランス・左右差(主な項目:L|R Peak Braking Force)」を測定
 
 - 「スピード」「加速」「減速」「再加速」「ジャンプ」「パワー」「安定性」「バランス・左右差」の7角形をダッシュボードのグラフで表現したい
 
