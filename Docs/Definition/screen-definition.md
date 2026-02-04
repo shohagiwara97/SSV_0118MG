@@ -154,26 +154,33 @@
   - Max speed (km/h)
   - Acceleration (m/s²)
 - アジリティ 5-0-5（Photon）
-  - 5-0-5 time (s)
-  - Total time (s)
-  - Max speed (km/h)
-  - Average acceleration (m/s²)
-  - Average deceleration (m/s²)
-  - Average re-acceleration (m/s²)
-  - 5-0 time (s)
-  - 0-5 time (s)
+  - 同一カード内で「加速/減速/再加速」の小見出しを付けて区分する
+  - 加速
+    - Average acceleration (m/s²)
+    - 5-0 time (s)
+    - Max speed (km/h)
+  - 減速
+    - Average deceleration (m/s²)
+    - 5-0-5 time (s)
+  - 再加速
+    - Average re-acceleration (m/s²)
+    - 0-5 time (s)
+    - Total time (s)
 - ジャンプ（Hawkin CMJ）
   - Jump Height
   - Jump Momentum
   - Countermovement Depth
   - Flight Time
   - Time To Takeoff
-- ストレングス/パワー/安定性/バランス・左右差（Hawkin CMJ）
+- ストレングス（Hawkin CMJ）
   - Braking RFD
-  - Peak Relative Propulsive Power
+- パワー（Hawkin CMJ）
   - Peak Propulsive Power
+- 安定性（Hawkin CMJ）
   - Relative Peak Landing Force
   - Peak Landing Force
+- バランス・左右差（Hawkin CMJ）
+  - Peak Relative Propulsive Power
 
 **操作**
 - 戻るで SCR-01 へ

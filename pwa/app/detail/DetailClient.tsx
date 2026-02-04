@@ -42,6 +42,80 @@ export default function DetailClient() {
     HAWKIN: { src: "/icons/hawkin.svg", alt: "Hawkin Dynamics" }
   };
 
+  const renderMetrics = (metrics: typeof detailSections[number]["metrics"]) => (
+    <div className="mt-3 space-y-3">
+      {metrics.map((metric) => (
+        <div
+          key={metric.label}
+          className="grid gap-3 rounded-2xl border border-line bg-surfaceAlt px-4 py-3 text-base sm:grid-cols-[1fr_0.7fr_0.7fr] sm:text-sm"
+        >
+          <span className="font-medium text-accent">{metric.label}</span>
+          <div className="grid grid-cols-2 gap-3 sm:contents">
+            <span className="flex flex-col gap-1 text-muted sm:block">
+              <span className="text-[11px] uppercase tracking-[0.12em] text-muted sm:hidden">
+                前回
+              </span>
+              {metric.previous}
+            </span>
+            <span className="flex flex-col gap-1 text-accent sm:block">
+              <span className="text-[11px] uppercase tracking-[0.12em] text-muted sm:hidden">
+                今回
+              </span>
+              {metric.current}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderAgilityGroups = (metrics: typeof detailSections[number]["metrics"]) => {
+    const metricsById = new Map(metrics.map((metric) => [metric.id, metric]));
+    const groupDefs = [
+      {
+        id: "accel",
+        label: "加速",
+        metricIds: ["agility_avg_accel", "agility_5_0_time", "agility_max_speed"]
+      },
+      {
+        id: "decel",
+        label: "減速",
+        metricIds: ["agility_avg_decel", "agility_505_time"]
+      },
+      {
+        id: "re_accel",
+        label: "再加速",
+        metricIds: ["agility_avg_reaccel", "agility_0_5_time", "agility_total_time"]
+      }
+    ];
+
+    return (
+      <div className="mt-3 space-y-4">
+        {groupDefs.map((group) => {
+          const groupMetrics = group.metricIds
+            .map((id) => metricsById.get(id))
+            .filter(
+              (metric): metric is typeof metrics[number] => metric !== undefined
+            );
+          if (!groupMetrics.length) {
+            return null;
+          }
+          return (
+            <div key={group.id} className="rounded-2xl border border-line bg-white/70 p-3">
+              <div className="flex items-center gap-2">
+                <span className="label-chip text-[10px] uppercase tracking-[0.14em] text-accent">
+                  {group.label}
+                </span>
+                <span className="text-[11px] text-muted">Agility</span>
+              </div>
+              {renderMetrics(groupMetrics)}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <div className="space-y-6">
       <header className="flex flex-wrap items-center justify-between gap-4">
@@ -101,30 +175,9 @@ export default function DetailClient() {
               <span>前回</span>
               <span>今回</span>
             </div>
-            <div className="mt-3 space-y-3">
-              {section.metrics.map((metric) => (
-                <div
-                  key={metric.label}
-                  className="grid gap-3 rounded-2xl border border-line bg-surfaceAlt px-4 py-3 text-base sm:grid-cols-[1fr_0.7fr_0.7fr] sm:text-sm"
-                >
-                  <span className="font-medium text-accent">{metric.label}</span>
-                  <div className="grid grid-cols-2 gap-3 sm:contents">
-                    <span className="flex flex-col gap-1 text-muted sm:block">
-                      <span className="text-[11px] uppercase tracking-[0.12em] text-muted sm:hidden">
-                        前回
-                      </span>
-                      {metric.previous}
-                    </span>
-                    <span className="flex flex-col gap-1 text-accent sm:block">
-                      <span className="text-[11px] uppercase tracking-[0.12em] text-muted sm:hidden">
-                        今回
-                      </span>
-                      {metric.current}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {section.id === "agility_505"
+              ? renderAgilityGroups(section.metrics)
+              : renderMetrics(section.metrics)}
           </details>
         ))}
       </div>

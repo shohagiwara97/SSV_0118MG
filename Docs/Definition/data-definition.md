@@ -145,6 +145,7 @@
 | agility_0_5_time | 0-5 time | s | number | `0-5 time (s)` |
 
 - このテストでは「加速/減速/再加速」を測定する（主指標: Average acceleration / Average deceleration / Average re-acceleration）。
+- 詳細画面では同一カード内で「加速/減速/再加速」の小見出しで区分表示する。
 
 ### 5.3 ジャンプ（Hawkin CMJ）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
@@ -157,16 +158,28 @@
 
 - このテストでは「ジャンプ（主指標: Jump Height）」を測定する。
 
-### 5.4 ストレングス/パワー/安定性/バランス・左右差（Hawkin CMJ）
+### 5.4 ストレングス（Hawkin CMJ）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
 | braking_rfd | Braking RFD | vendor | number | `Braking RFD` |
-| peak_relative_propulsive_power | Peak Relative Propulsive Power | vendor | number | `Peak Relative Propulsive Power` |
+
+### 5.5 パワー（Hawkin CMJ）
+| metric_id | 表示名 | 単位 | 形式 | 参照カラム |
+| --- | --- | --- | --- | --- |
 | peak_propulsive_power | Peak Propulsive Power | vendor | number | `Peak Propulsive Power` |
+
+### 5.6 安定性（Hawkin CMJ）
+| metric_id | 表示名 | 単位 | 形式 | 参照カラム |
+| --- | --- | --- | --- | --- |
 | relative_peak_landing_force | Relative Peak Landing Force | vendor | number | `Relative Peak Landing Force` |
 | peak_landing_force | Peak Landing Force | vendor | number | `Peak Landing Force` |
 
-- このテストでは「パワー（主指標: Peak Propulsive Power）」「安定性（主指標: Peak Landing Force）」「バランス・左右差（主指標: Peak Propulsive Power）」を測定する。
+### 5.7 バランス・左右差（Hawkin CMJ）
+| metric_id | 表示名 | 単位 | 形式 | 参照カラム |
+| --- | --- | --- | --- | --- |
+| peak_relative_propulsive_power | Peak Relative Propulsive Power | vendor | number | `Peak Relative Propulsive Power` |
+
+- このテストでは「パワー（主指標: Peak Propulsive Power）」「安定性（主指標: Peak Landing Force）」「バランス・左右差（主指標: Peak Relative Propulsive Power）」を測定する。
 
 ---
 

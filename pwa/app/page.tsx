@@ -82,7 +82,7 @@ export default function Home() {
       <section className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-muted">Player</p>
-          <p className="text-sm text-accent sm:text-base">選手を選択</p>
+          <p className="text-sm text-ink sm:text-base">選手を選択</p>
         </div>
         <div className="w-full sm:max-w-xs">
           <label className="sr-only" htmlFor="player-select">

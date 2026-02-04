@@ -138,8 +138,8 @@ export const getReportCategories = (
 export const getDetailSections = (
   data: ReportData | null,
   playerId?: string
-): ReportSection[] =>
-  (getPlayerReport(data, playerId)?.sections ?? []).map((section) => ({
+): ReportSection[] => {
+  const sections = (getPlayerReport(data, playerId)?.sections ?? []).map((section) => ({
     id: section.id,
     title: section.title,
     vendor: section.vendor,
@@ -150,3 +150,43 @@ export const getDetailSections = (
       current: formatMetricValue(metric)
     }))
   }));
+
+  const splitStrengthSections = (section: ReportSection): ReportSection[] => {
+    if (section.id !== "strength") {
+      return [section];
+    }
+
+    const metricsMap = new Map(section.metrics.map((metric) => [metric.id, metric]));
+    const pick = (ids: string[]) =>
+      ids.map((id) => metricsMap.get(id)).filter((metric): metric is ReportMetric => !!metric);
+
+    return [
+      {
+        id: "strength",
+        title: "ストレングス",
+        vendor: section.vendor,
+        metrics: pick(["braking_rfd"])
+      },
+      {
+        id: "power",
+        title: "パワー",
+        vendor: section.vendor,
+        metrics: pick(["peak_propulsive_power"])
+      },
+      {
+        id: "stability",
+        title: "安定性",
+        vendor: section.vendor,
+        metrics: pick(["peak_landing_force", "relative_peak_landing_force"])
+      },
+      {
+        id: "balance_lr",
+        title: "バランス・左右差",
+        vendor: section.vendor,
+        metrics: pick(["peak_relative_propulsive_power"])
+      }
+    ];
+  };
+
+  return sections.flatMap(splitStrengthSections);
+};
