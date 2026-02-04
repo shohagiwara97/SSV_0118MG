@@ -20,6 +20,8 @@
   - `Data/Meiji Gakuin_505_0118.csv`
 - Hawkin Dynamics（Countermovement Jump）
   - `Data/Meiji_Gakuin-01_18_26-01_18_26-_Countermovement_Jump.csv`
+- 参加者ロスター（学年/背番号/ポジション）
+  - `Data/Meiji_Gakuin_roster_0118.csv`（任意・存在する場合のみ反映）
 - 参加者プロフィール（運営入力/事前登録）
 - NTT Sportict / PlayerData / Upmind は将来拡張（現時点は非表示）
 
@@ -37,10 +39,12 @@
 
 ### 3.2 Participant
 - participant_id: string
+- number: number | null
 - name: string
 - team: string | null
 - position: string | null
 - grade: string | null
+- term: string | null
 
 ### 3.3 MetricValue
 - metric_id: string

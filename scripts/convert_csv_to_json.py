@@ -41,6 +41,19 @@ def parse_float(value: str) -> Optional[float]:
         return None
 
 
+def parse_int(value: str) -> Optional[int]:
+    if value is None:
+        return None
+    v = str(value).strip()
+    if v == "" or v.upper() == "N/A":
+        return None
+    v = v.replace(",", "")
+    try:
+        return int(float(v))
+    except ValueError:
+        return None
+
+
 def apply_transform(value: Optional[float], transform: Optional[str]) -> Optional[float]:
     if value is None:
         return None
@@ -90,6 +103,56 @@ def read_csv_rows(source: Dict[str, Any]) -> List[Dict[str, str]]:
             continue
         rows.append(row)
     return rows
+
+
+def read_roster(config: Dict[str, Any], name_aliases: Dict[str, str]) -> Dict[str, Dict[str, Any]]:
+    roster = config.get("roster")
+    if not roster:
+        return {}
+    path_value = roster.get("path")
+    if not path_value:
+        return {}
+    path = Path(path_value).expanduser()
+    if not path.exists():
+        return {}
+
+    source = {
+        "path": path_value,
+        "delimiter": roster.get("delimiter", ","),
+        "header_skip": roster.get("header_skip", 0)
+    }
+    rows = read_csv_rows(source)
+    player_field = roster.get("player_field", "Name")
+    number_field = roster.get("number_field")
+    grade_field = roster.get("grade_field")
+    position_field = roster.get("position_field")
+    term_field = roster.get("term_field")
+
+    roster_meta: Dict[str, Dict[str, Any]] = {}
+    for row in rows:
+        name_raw = row.get(player_field, "").strip()
+        if not name_raw:
+            continue
+        name = normalize_name(name_raw, name_aliases)
+        meta = roster_meta.setdefault(name, {})
+        if number_field:
+            number_value = parse_int(row.get(number_field, ""))
+            if number_value is not None:
+                meta["number"] = number_value
+        if grade_field:
+            grade_value = (row.get(grade_field) or "").strip()
+            if grade_value:
+                meta["grade"] = grade_value
+        if position_field:
+            position_value = (row.get(position_field) or "").strip()
+            if position_value:
+                meta["position"] = position_value
+        if term_field:
+            term_value = (row.get(term_field) or "").strip()
+            if term_value:
+                meta["term"] = term_value
+
+    return roster_meta
 
 
 def select_rows(
@@ -216,6 +279,7 @@ def score_values(
 def build_output(config: Dict[str, Any]) -> Dict[str, Any]:
     name_aliases = config.get("name_aliases", {})
     sources = config.get("sources", {})
+    roster_meta = read_roster(config, name_aliases)
     score_range = config.get("score_range", {"min": 70, "max": 95})
     score_min = score_range.get("min", 70)
     score_max = score_range.get("max", 95)
@@ -257,8 +321,11 @@ def build_output(config: Dict[str, Any]) -> Dict[str, Any]:
                         meta["position"] = pos
                         break
 
+    for name, meta in roster_meta.items():
+        player_meta.setdefault(name, {}).update(meta)
+
     player_names = sorted(metrics_by_source[source_id].keys() for source_id in metrics_by_source)
-    flat_names = sorted({name for names in player_names for name in names})
+    flat_names = sorted({name for names in player_names for name in names} | set(roster_meta.keys()))
 
     categories = config.get("categories", [])
     category_scores: Dict[str, Dict[str, Optional[int]]] = defaultdict(dict)
@@ -342,6 +409,9 @@ def build_output(config: Dict[str, Any]) -> Dict[str, Any]:
             {
                 "id": player_id,
                 "name": name,
+                "number": meta.get("number"),
+                "grade": meta.get("grade"),
+                "term": meta.get("term"),
                 "position": meta.get("position"),
                 "measuredAt": meta.get("measuredAt"),
                 "categories": player_categories,

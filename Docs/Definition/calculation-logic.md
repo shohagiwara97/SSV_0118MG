@@ -34,10 +34,16 @@ Photon Sprint / Photon 5-0-5 / Hawkin CMJ のCSV。
 ヘッダー行: 1行目  
 選手単位で最新1件を採用（`Date` + `Time` の新しい行）
 
-4. 名前の揺れ  
+4. 参加者ロスター（任意）  
+ファイル: `Data/Meiji_Gakuin_roster_0118.csv`  
+目的: 学年/背番号/ポジション/半期などの補完  
+ロスターが存在する場合のみマージする（同名キーで上書き）
+想定カラム例: `Name`, `Number`, `Grade`, `Position`, `Term`
+
+5. 名前の揺れ  
 `mapping.json` の `name_aliases` で統一する。
 
-5. 左右差指標の扱い  
+6. 左右差指標の扱い  
 `L|R` 指標は **絶対値に変換** して扱う（左右差の大小のみを評価するため）。
 
 ---
@@ -48,6 +54,7 @@ Photon Sprint / Photon 5-0-5 / Hawkin CMJ のCSV。
 `players[].categories`: レーダー用のカテゴリスコアと順位  
 `players[].sections`: 詳細画面のセクションと指標一覧  
 `players[].metrics`: 生値（ソース別のメトリクス辞書）
+`players[].number/grade/position/term`: ロスターCSVが存在する場合に補完
 
 2. 詳細画面の「前回」は現時点では `--` 固定。
 

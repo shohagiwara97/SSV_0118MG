@@ -4,6 +4,16 @@
     "date": "2026-01-18"
   },
   "name_aliases": {},
+  "roster": {
+    "path": "Data/Meiji_Gakuin_roster_0118.csv",
+    "delimiter": ",",
+    "header_skip": 0,
+    "player_field": "Name",
+    "number_field": "Number",
+    "grade_field": "Grade",
+    "position_field": "Position",
+    "term_field": "Term"
+  },
   "score_range": {
     "min": 70,
     "max": 95

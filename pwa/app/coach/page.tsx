@@ -3,10 +3,11 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import CoachRadarChart from "../components/CoachRadarChart";
+import { reportDataUrl, type ReportData } from "../lib/sampleData";
 import {
-  coachDefaultPlayerId,
-  coachPlayerList,
-  coachPlayerReports
+  buildCoachPlayerList,
+  buildCoachPlayerReports,
+  getCoachDefaultPlayerId
 } from "../lib/coachData";
 
 type CoachSortKey = "name" | "grade" | "position" | "number";
@@ -40,9 +41,10 @@ const termOptions = [
   { value: "下半期", label: "下半期" }
 ];
 
-const gradeValue = (grade: string) => {
+const gradeValue = (grade: string | null) => {
+  if (!grade) return Number.MAX_SAFE_INTEGER;
   const match = grade.match(/\d+/);
-  return match ? Number(match[0]) : 0;
+  return match ? Number(match[0]) : Number.MAX_SAFE_INTEGER;
 };
 
 const positionOrder: Record<string, number> = {
@@ -63,9 +65,9 @@ const comparePlayers = (
     case "grade":
       return gradeValue(a.grade) - gradeValue(b.grade);
     case "position":
-      return (positionOrder[a.position] ?? 9) - (positionOrder[b.position] ?? 9);
+      return (positionOrder[a.position ?? ""] ?? 9) - (positionOrder[b.position ?? ""] ?? 9);
     case "number":
-      return a.number - b.number;
+      return (a.number ?? Number.MAX_SAFE_INTEGER) - (b.number ?? Number.MAX_SAFE_INTEGER);
     default:
       return 0;
   }
@@ -78,17 +80,50 @@ const formatDelta = (value: number) => {
 };
 
 export default function CoachPage() {
-  const [selectedPlayerId, setSelectedPlayerId] = useState(coachDefaultPlayerId);
+  const [reportData, setReportData] = useState<ReportData | null>(null);
+  const [selectedPlayerId, setSelectedPlayerId] = useState("");
   const [sortKey, setSortKey] = useState<CoachSortKey>("number");
   const [gradeFilter, setGradeFilter] = useState("all");
   const [termFilter, setTermFilter] = useState("all");
+
+  const coachPlayerList = useMemo(
+    () => buildCoachPlayerList(reportData),
+    [reportData]
+  );
+  const coachPlayerReports = useMemo(
+    () => buildCoachPlayerReports(reportData),
+    [reportData]
+  );
+  const coachDefaultPlayerId = useMemo(
+    () => getCoachDefaultPlayerId(reportData),
+    [reportData]
+  );
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const response = await fetch(reportDataUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to load report data: ${response.status}`);
+        }
+        const data = (await response.json()) as ReportData;
+        setReportData(data);
+        setSelectedPlayerId((current) => current || getCoachDefaultPlayerId(data));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    load();
+  }, []);
 
   const sortedPlayerList = useMemo(() => {
     const direction = sortDirections[sortKey] === "asc" ? 1 : -1;
     return coachPlayerList
       .filter((player) => {
-        const gradeMatches = gradeFilter === "all" || player.grade === gradeFilter;
-        const termMatches = termFilter === "all" || player.term === termFilter;
+        const gradeMatches =
+          gradeFilter === "all" || (player.grade ?? "--") === gradeFilter;
+        const termMatches =
+          termFilter === "all" || (player.term ?? "通期") === termFilter;
         return gradeMatches && termMatches;
       })
       .sort((a, b) => {
@@ -105,9 +140,26 @@ export default function CoachPage() {
     sortedPlayerList[0]?.id ??
     coachDefaultPlayerId;
 
+  const fallbackReport = useMemo(
+    () => ({
+      player: {
+        id: "",
+        number: null,
+        name: "--",
+        position: "--",
+        grade: "--",
+        term: "通期",
+        measuredAt: null
+      },
+      radarMetrics: [],
+      summaryMetrics: []
+    }),
+    []
+  );
+
   const selectedReport = useMemo(
-    () => coachPlayerReports[activePlayerId] ?? coachPlayerReports[coachDefaultPlayerId],
-    [activePlayerId]
+    () => coachPlayerReports[activePlayerId] ?? coachPlayerReports[coachDefaultPlayerId] ?? fallbackReport,
+    [activePlayerId, coachDefaultPlayerId, coachPlayerReports, fallbackReport]
   );
 
   const selectedPlayer = selectedReport.player;
@@ -211,12 +263,14 @@ export default function CoachPage() {
           <div className="w-full rounded-2xl border border-line bg-surfaceAlt px-4 py-3 text-xs text-muted md:w-auto">
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted">選手セレクタ</p>
             <p className="mt-1 text-sm text-ink">
-              <span className="text-accent">#{selectedPlayer.number}</span> {selectedPlayer.name}{" "}
-              / {selectedPlayer.position}
+              <span className="text-accent">
+                #{selectedPlayer.number ?? "--"}
+              </span>{" "}
+              {selectedPlayer.name} / {selectedPlayer.position ?? "--"}
             </p>
             <p className="text-[11px] text-muted">
-              {selectedPlayer.grade}・測定日{" "}
-              <span className="text-accent2">{selectedPlayer.measuredAt}</span>
+              {selectedPlayer.grade ?? "--"}・測定日{" "}
+              <span className="text-accent2">{selectedPlayer.measuredAt ?? "--"}</span>
             </p>
           </div>
         </div>
@@ -272,12 +326,17 @@ export default function CoachPage() {
 
           <div className="flex flex-col gap-4">
             <div className="flex justify-center rounded-2xl border border-line bg-white p-4 sm:p-5">
-              <CoachRadarChart metrics={selectedReport.radarMetrics} />
+              {selectedReport.radarMetrics.length ? (
+                <CoachRadarChart metrics={selectedReport.radarMetrics} />
+              ) : (
+                <div className="py-10 text-sm text-muted">データなし</div>
+              )}
             </div>
 
             <div className="rounded-2xl border border-line bg-surfaceAlt px-4 py-3">
               <div className="divide-y divide-line">
-                {selectedReport.summaryMetrics.map((metric) => {
+                {selectedReport.summaryMetrics.length ? (
+                  selectedReport.summaryMetrics.map((metric) => {
                   const delta = formatDelta(metric.delta);
                   return (
                     <div
@@ -287,7 +346,7 @@ export default function CoachPage() {
                       <span className="text-muted">{metric.label}</span>
                       <span className="flex items-baseline gap-2">
                         <span className="font-display text-base font-semibold metric-score sm:text-lg">
-                          {metric.score}
+                          {metric.score ?? "--"}
                         </span>
                         <span className="text-[11px] text-muted">|</span>
                         <span className={`text-[12px] sm:text-[13px] numeric-glow ${delta.tone}`}>
@@ -296,7 +355,10 @@ export default function CoachPage() {
                       </span>
                     </div>
                   );
-                })}
+                })
+                ) : (
+                  <div className="py-6 text-center text-sm text-muted">データなし</div>
+                )}
               </div>
             </div>
           </div>

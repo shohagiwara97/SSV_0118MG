@@ -3,7 +3,7 @@
     "id": "meiji-gakuin-2026-01-18",
     "date": "2026-01-18"
   },
-  "generatedAt": "2026-02-04T16:23:22.961677",
+  "generatedAt": "2026-02-04T18:30:08.096845",
   "scoreRange": {
     "min": 70,
     "max": 95
@@ -12,6 +12,9 @@
     {
       "id": "daichi-takamatsu",
       "name": "Daichi Takamatsu",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "GK",
       "measuredAt": "2026-01-18T09:52:28",
       "categories": [
@@ -425,6 +428,9 @@
     {
       "id": "daigo-hiratsuka",
       "name": "Daigo Hiratsuka",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "DF",
       "measuredAt": "2026-01-18T09:56:38",
       "categories": [
@@ -838,6 +844,9 @@
     {
       "id": "katsutoshi-higashi",
       "name": "Katsutoshi Higashi",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "VO",
       "measuredAt": "2026-01-18T09:55:18",
       "categories": [
@@ -1251,6 +1260,9 @@
     {
       "id": "riku-suzuki",
       "name": "Riku Suzuki",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "VO",
       "measuredAt": "2026-01-18T09:54:01",
       "categories": [
@@ -1664,6 +1676,9 @@
     {
       "id": "rikuto-imai",
       "name": "Rikuto Imai",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "LSB",
       "measuredAt": "2026-01-18T09:44:22",
       "categories": [
@@ -2077,6 +2092,9 @@
     {
       "id": "satoshi-arai",
       "name": "Satoshi Arai",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "CB",
       "measuredAt": "2026-01-18T09:43:17",
       "categories": [
@@ -2490,6 +2508,9 @@
     {
       "id": "shota-ishikawa",
       "name": "Shota Ishikawa",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "FW",
       "measuredAt": "2026-01-18T09:43:52",
       "categories": [
@@ -2903,6 +2924,9 @@
     {
       "id": "shun-hayakawa",
       "name": "Shun Hayakawa",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "MF",
       "measuredAt": "2026-01-18T09:58:30",
       "categories": [
@@ -3316,6 +3340,9 @@
     {
       "id": "so-kijima",
       "name": "So Kijima",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "VO",
       "measuredAt": "2026-01-18T09:47:24",
       "categories": [
@@ -3729,6 +3756,9 @@
     {
       "id": "soma-tanaka",
       "name": "Soma Tanaka",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "FW",
       "measuredAt": "2026-01-18T09:51:13",
       "categories": [
@@ -4142,6 +4172,9 @@
     {
       "id": "tatsuya-fukunaga",
       "name": "Tatsuya Fukunaga",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "LSB",
       "measuredAt": "2026-01-18T09:48:57",
       "categories": [
@@ -4555,6 +4588,9 @@
     {
       "id": "yuto-otani",
       "name": "Yuto Otani",
+      "number": null,
+      "grade": null,
+      "term": null,
       "position": "MF",
       "measuredAt": "2026-01-18T09:47:01",
       "categories": [

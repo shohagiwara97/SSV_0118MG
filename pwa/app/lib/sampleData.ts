@@ -70,6 +70,9 @@ type PlayerSection = {
 type PlayerReport = {
   id: string;
   name: string;
+  number?: number | null;
+  grade?: string | null;
+  term?: string | null;
   position?: string | null;
   measuredAt?: string | null;
   categories: PlayerCategory[];
