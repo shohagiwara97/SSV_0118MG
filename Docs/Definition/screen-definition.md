@@ -1,8 +1,9 @@
 # 画面定義書（SSV 1Day PWA）
 
 - 作成日: 2026-01-11
-- 版数: v0.1
-- 参照: Docs/ScreenImage/ScreenImage.png, Docs/ScreenImage/CoachScreen.png, Docs/ScreenImage/CoachData.png
+- 更新日: 2026-02-04
+- 版数: v0.2
+- 参照: Docs/ScreenImage/ScreenImage.png, Docs/ScreenImage/CoachScreen.png, Docs/ScreenImage/CoachData.png, Docs/revise.md
 
 ---
 
@@ -91,35 +92,39 @@
 
 **レイアウト構成**
 - ヘッダー: サービスロゴ + 画面タイトル
+- 選手セレクタ: 画面上部に選手名ドロップダウン（CSVの選手名から抽出）
 - KPIサマリー: レーダーチャート（8軸） + 各軸のスコア/順位
 - Score Snapshot: 8カテゴリのスコア/順位カード（2列×4行）
-- フッター: 連携サービスロゴ行（Photon/Hawkin/NTT SPORTICT/Upmind）
+- フッター: 連携サービスロゴ行（Photon/Hawkin を表示。その他は将来拡張で非表示）
 - ハイライト動画カード: サムネイル + 再生ボタン + ラベル
 
 **表示項目**
+- 選手名（ドロップダウンで切替）
 - カテゴリKPI（8領域）
-  - 加速・スピード
-  - 方向転換
+  - スピード
+  - 加速
   - 減速
+  - 再加速
   - ジャンプ
-  - ストレングス
+  - パワー
+  - 安定性
   - バランス・左右差
-  - 疲労度
-  - メンタル
 - 各カテゴリ表示要素
-  - スコア（0-100想定）
+  - スコア（70-95）
   - 順位（例: 1位/2位/3位）
 - ハイライト動画
   - サムネイル
   - 再生URL
 
 **操作**
+- 選手セレクタ変更で表示内容を切替
 - レポート詳細ボタン/レーダーチャートのタップで SCR-02 へ
 - 動画カードのタップで再生
 
 **状態**
 - 取得前: スケルトン表示
-- データ欠損: 該当KPIは「未計測」表示 + 軸を薄色
+- データ欠損: 該当KPIは「--」表示
+- 将来拡張カテゴリ（方向転換/疲労度/メンタル等）は非表示
 - 権限不足: KPI値は非表示、ダミーの枠のみ
 
 ---
@@ -140,42 +145,35 @@
 - セクションごとに区切り、提供元アイコンを表示
 
 **セクション/項目（例）**
-- 加速とスピード（Photon）
-  - 5m
-  - 10m
-  - 20m
-  - 30m
-  - Forced Velocity
-  - 最大速度
-- 方向転換（Photon）
-  - 5-10-5
-  - T-test
-  - Curved Sprint
-  - Cut 45°
-  - Cut 75°
-- 減速（Photon）
-  - ADA減速距離
-  - 5-0-5
-- ジャンプ（Hawkin）
-  - CMJ
-  - スクワットジャンプ
-  - 片脚ジャンプ（R/L）
-- ストレングス（Hawkin）
-  - ジャンプ力
-  - RFD
-  - 加速ポテンシャル
-- バランス・左右差（Hawkin）
-  - 左右差
-  - 片脚ジャンプ差
-  - 着地安定性指数
-- 疲労度（Hawkin）
-  - CMJ 低下率
-  - RFD 低下率
-  - 着地衝撃増加
-- メンタル（Upmind）
-  - 集中度
-  - HRV
-  - 睡眠スコア
+- スプリント（Photon）
+  - Total time (s)
+  - Split time 5 m (s)
+  - Split time 10 m (s)
+  - Split time 15 m (s)
+  - Split time 20 m (s)
+  - Max speed (km/h)
+  - Acceleration (m/s²)
+- アジリティ 5-0-5（Photon）
+  - 5-0-5 time (s)
+  - Total time (s)
+  - Max speed (km/h)
+  - Average acceleration (m/s²)
+  - Average deceleration (m/s²)
+  - Average re-acceleration (m/s²)
+  - 5-0 time (s)
+  - 0-5 time (s)
+- ジャンプ（Hawkin CMJ）
+  - Jump Height
+  - Jump Momentum
+  - Countermovement Depth
+  - Flight Time
+  - Time To Takeoff
+- ストレングス/パワー/安定性/バランス・左右差（Hawkin CMJ）
+  - Braking RFD
+  - Peak Relative Propulsive Power
+  - Peak Propulsive Power
+  - Relative Peak Landing Force
+  - Peak Landing Force
 
 **操作**
 - 戻るで SCR-01 へ
@@ -185,6 +183,7 @@
 - 取得前: スケルトン表示
 - データ欠損: 前回/今回の欠損を「--」表示
 - オフライン: キャッシュ済みデータを優先表示
+- 将来拡張カテゴリ（方向転換/疲労度/メンタル等）は非表示
 
 ---
 
@@ -212,16 +211,16 @@
   - 背番号、名前、ポジション、学年、直近伸長率
   - バッジ: 上位/急伸/要注意
 - レーダー（8軸）
-  - 加速・スピード
-  - 方向転換
+  - スピード
+  - 加速
   - 減速
+  - 再加速
   - ジャンプ
-  - ストレングス
+  - パワー
+  - 安定性
   - バランス・左右差
-  - 疲労度
-  - メンタル
 - 選手サマリー
-  - Home画面の8カテゴリ（加速・スピード/方向転換/減速/ジャンプ/ストレングス/バランス・左右差/疲労度/メンタル）
+  - Home画面の8カテゴリ（スピード/加速/減速/再加速/ジャンプ/パワー/安定性/バランス・左右差）
   - 各カテゴリのスコア + 差分
 
 **操作**
@@ -236,5 +235,6 @@
 
 ## 5. MVPにおける表示要件（第一弾）
 - CSV/JSONのインポート結果をSCR-01/02に反映できることを最優先とする
-- Photon/Hawkin/Upmind の主要KPIを表示し、未対応項目は「未計測」表示とする（NTT Sportictは詳細画面の対象外）
+- Photon（スプリント/5-0-5）/Hawkin（CMJ）の主要KPIを表示し、将来拡張カテゴリは非表示とする
+- SCR-01 は選手名ドロップダウンで表示切替できること
 - SCR-03は選手リスト/レーダー/差分表示までをモックで再現する

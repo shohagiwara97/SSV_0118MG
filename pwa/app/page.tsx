@@ -1,14 +1,61 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import RadarChart from "./components/RadarChart";
-import { highlightVideo, reportCategories, reportMeta } from "./lib/sampleData";
+import {
+  getDefaultPlayerId,
+  getReportCategories,
+  getReportEvent,
+  getReportPlayers,
+  highlightVideo,
+  reportDataUrl,
+  reportMeta,
+  type ReportData
+} from "./lib/sampleData";
 
 export default function Home() {
+  const [reportData, setReportData] = useState<ReportData | null>(null);
+  const [selectedPlayerId, setSelectedPlayerId] = useState("");
+  const reportPlayers = useMemo(() => getReportPlayers(reportData), [reportData]);
+  const reportCategories = useMemo(
+    () => getReportCategories(reportData, selectedPlayerId),
+    [reportData, selectedPlayerId]
+  );
+  const reportEvent = useMemo(() => getReportEvent(reportData), [reportData]);
+
+  const chartCategories = useMemo(
+    () =>
+      reportCategories.map((category) => ({
+        ...category,
+        score: category.score ?? 0
+      })),
+    [reportCategories]
+  );
+
   const brandLogos = [
     { label: "Photon Sports", src: "/icons/photon.svg" },
-    { label: "Hawkin Dynamics", src: "/icons/hawkin.svg" },
-    { label: "NTT Sportict", src: "/icons/ntt-sportict.svg" },
-    { label: "Upmind", src: "/icons/upmind.svg" }
+    { label: "Hawkin Dynamics", src: "/icons/hawkin.svg" }
   ];
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const response = await fetch(reportDataUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to load report data: ${response.status}`);
+        }
+        const data = (await response.json()) as ReportData;
+        setReportData(data);
+        setSelectedPlayerId((current) => current || getDefaultPlayerId(data));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    load();
+  }, []);
+
+  const activePlayerId = selectedPlayerId || reportPlayers[0]?.id || "";
 
   return (
     <div className="w-full space-y-5 sm:space-y-6">
@@ -28,24 +75,56 @@ export default function Home() {
         </div>
         <div className="w-full text-left text-xs text-muted sm:w-auto sm:text-xs">
           <p>{reportMeta.subtitle}</p>
-          <p>Event v0.1</p>
+          <p>Event: {reportEvent.date}</p>
         </div>
       </header>
+
+      <section className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-xs uppercase tracking-[0.24em] text-muted">Player</p>
+          <p className="text-sm text-accent sm:text-base">選手を選択</p>
+        </div>
+        <div className="w-full sm:max-w-xs">
+          <label className="sr-only" htmlFor="player-select">
+            選手名
+          </label>
+          <select
+            id="player-select"
+            value={activePlayerId}
+            onChange={(event) => setSelectedPlayerId(event.target.value)}
+            className="w-full rounded-2xl border border-line bg-white px-4 py-2 text-sm text-accent shadow-cardSoft focus:border-accent focus:outline-none"
+          >
+            {reportPlayers.length ? (
+              reportPlayers.map((player) => (
+                <option key={player.id} value={player.id}>
+                  {player.name}
+                </option>
+              ))
+            ) : (
+              <option value="">データなし</option>
+            )}
+          </select>
+        </div>
+      </section>
 
       <section className="grid gap-5 sm:gap-6 md:grid-cols-[1.1fr_0.9fr]">
         <div className="neon-card rounded-2xl p-4 sm:rounded-3xl sm:p-6">
           <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:text-left">
             <p className="text-xs text-muted sm:text-sm">KPI Overview</p>
             <Link
-              href="/detail"
+              href={`/detail?player=${activePlayerId}`}
               className="rounded-full border border-accent/30 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-accent transition hover:border-accent hover:bg-accent hover:text-white sm:px-4 sm:py-1 sm:text-xs sm:tracking-[0.24em]"
             >
               レポート詳細
             </Link>
           </div>
           <div className="mt-4 flex items-center justify-center pb-24 sm:mt-4 sm:pb-20 lg:mt-20 lg:pb-24">
-            <Link href="/detail" aria-label="レポート詳細へ" className="block">
-              <RadarChart categories={reportCategories} />
+            <Link
+              href={`/detail?player=${activePlayerId}`}
+              aria-label="レポート詳細へ"
+              className="block"
+            >
+              <RadarChart categories={chartCategories} />
             </Link>
           </div>
           <div className="neon-divider mt-5 sm:mt-6" />
@@ -69,7 +148,7 @@ export default function Home() {
                 >
                   <p className="text-xs text-muted sm:text-[11px]">{category.label}</p>
                   <p className="font-display text-lg text-accent numeric-glow sm:text-xl">
-                    {category.score}
+                    {category.score ?? "--"}
                   </p>
                   <p className="text-xs text-muted sm:text-[10px]">
                     {category.rank ? `${category.rank}位` : "--"}

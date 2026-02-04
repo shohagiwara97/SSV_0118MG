@@ -1,0 +1,300 @@
+{
+  "event": {
+    "id": "meiji-gakuin-2026-01-18",
+    "date": "2026-01-18"
+  },
+  "name_aliases": {},
+  "score_range": {
+    "min": 70,
+    "max": 95
+  },
+  "score_rounding": "round",
+  "sources": {
+    "sprint": {
+      "path": "Data/Meiji Gakuin_sprint_0118.csv",
+      "format": "photon",
+      "delimiter": ";",
+      "header_skip": 2,
+      "player_field": "Player",
+      "date_field": "Date",
+      "row_select": "latest",
+      "metrics": {
+        "sprint_total_time": {
+          "label": "Total time (s)",
+          "column": "Total time (s)",
+          "unit": "s"
+        },
+        "sprint_split_5m": {
+          "label": "Split time 5 m (s)",
+          "column": "Split time 5 m (s)",
+          "unit": "s"
+        },
+        "sprint_split_10m": {
+          "label": "Split time 10 m (s)",
+          "column": "Split time 10 m (s)",
+          "unit": "s"
+        },
+        "sprint_split_15m": {
+          "label": "Split time 15 m (s)",
+          "column": "Split time 15 m (s)",
+          "unit": "s"
+        },
+        "sprint_split_20m": {
+          "label": "Split time 20 m (s)",
+          "column": "Split time 20 m (s)",
+          "unit": "s"
+        },
+        "sprint_max_speed": {
+          "label": "Max speed (km/h)",
+          "column": "Max speed (km/h)",
+          "unit": "km/h"
+        },
+        "sprint_accel": {
+          "label": "Acceleration (m/s²)",
+          "column": "Acceleration (m/s²)",
+          "unit": "m/s²"
+        }
+      }
+    },
+    "agility_505": {
+      "path": "Data/Meiji Gakuin_505_0118.csv",
+      "format": "photon",
+      "delimiter": ";",
+      "header_skip": 2,
+      "player_field": "Player",
+      "date_field": "Date",
+      "group_by": "Player",
+      "aggregate": "avg",
+      "metrics": {
+        "agility_505_time": {
+          "label": "5-0-5 time (s)",
+          "column": "5-0-5 time (s)",
+          "unit": "s"
+        },
+        "agility_total_time": {
+          "label": "Total time (s)",
+          "column": "Total time (s)",
+          "unit": "s"
+        },
+        "agility_max_speed": {
+          "label": "Max speed (km/h)",
+          "column": "Max speed (km/h)",
+          "unit": "km/h"
+        },
+        "agility_avg_accel": {
+          "label": "Average acceleration (m/s²)",
+          "column": "Average acceleration (m/s²)",
+          "unit": "m/s²"
+        },
+        "agility_avg_decel": {
+          "label": "Average deceleration (m/s²)",
+          "column": "Average deceleration (m/s²)",
+          "unit": "m/s²"
+        },
+        "agility_avg_reaccel": {
+          "label": "Average re-acceleration (m/s²)",
+          "column": "Average re-acceleration (m/s²)",
+          "unit": "m/s²"
+        },
+        "agility_5_0_time": {
+          "label": "5-0 time (s)",
+          "column": "5-0 time (s)",
+          "unit": "s"
+        },
+        "agility_0_5_time": {
+          "label": "0-5 time (s)",
+          "column": "0-5 time (s)",
+          "unit": "s"
+        }
+      }
+    },
+    "cmj": {
+      "path": "Data/Meiji_Gakuin-01_18_26-01_18_26-_Countermovement_Jump.csv",
+      "format": "hawkin",
+      "delimiter": ",",
+      "header_skip": 0,
+      "player_field": "Name",
+      "date_field": "Date",
+      "time_field": "Time",
+      "position_field": "Position",
+      "row_select": "latest",
+      "metrics": {
+        "jump_height": {
+          "label": "Jump Height",
+          "column": "Jump Height",
+          "unit": "vendor"
+        },
+        "jump_momentum": {
+          "label": "Jump Momentum",
+          "column": "Jump Momentum",
+          "unit": "vendor"
+        },
+        "countermovement_depth": {
+          "label": "Countermovement Depth",
+          "column": "Countermovement Depth",
+          "unit": "vendor"
+        },
+        "flight_time": {
+          "label": "Flight Time",
+          "column": "Flight Time",
+          "unit": "vendor"
+        },
+        "time_to_takeoff": {
+          "label": "Time To Takeoff",
+          "column": "Time To Takeoff",
+          "unit": "vendor"
+        },
+        "braking_rfd": {
+          "label": "Braking RFD",
+          "column": "Braking RFD",
+          "unit": "vendor"
+        },
+        "peak_relative_propulsive_power": {
+          "label": "Peak Relative Propulsive Power",
+          "column": "Peak Relative Propulsive Power",
+          "unit": "vendor"
+        },
+        "peak_propulsive_power": {
+          "label": "Peak Propulsive Power",
+          "column": "Peak Propulsive Power",
+          "unit": "vendor"
+        },
+        "relative_peak_landing_force": {
+          "label": "Relative Peak Landing Force",
+          "column": "Relative Peak Landing Force",
+          "unit": "vendor"
+        },
+        "peak_landing_force": {
+          "label": "Peak Landing Force",
+          "column": "Peak Landing Force",
+          "unit": "vendor"
+        }
+      }
+    }
+  },
+  "sections": [
+    {
+      "id": "sprint",
+      "title": "スプリント",
+      "vendor": "PHOTON",
+      "source": "sprint",
+      "metric_ids": [
+        "sprint_total_time",
+        "sprint_split_5m",
+        "sprint_split_10m",
+        "sprint_split_15m",
+        "sprint_split_20m",
+        "sprint_max_speed",
+        "sprint_accel"
+      ]
+    },
+    {
+      "id": "agility_505",
+      "title": "アジリティ 5-0-5",
+      "vendor": "PHOTON",
+      "source": "agility_505",
+      "metric_ids": [
+        "agility_505_time",
+        "agility_total_time",
+        "agility_max_speed",
+        "agility_avg_accel",
+        "agility_avg_decel",
+        "agility_avg_reaccel",
+        "agility_5_0_time",
+        "agility_0_5_time"
+      ]
+    },
+    {
+      "id": "jump",
+      "title": "ジャンプ",
+      "vendor": "HAWKIN",
+      "source": "cmj",
+      "metric_ids": [
+        "jump_height",
+        "jump_momentum",
+        "countermovement_depth",
+        "flight_time",
+        "time_to_takeoff"
+      ]
+    },
+    {
+      "id": "strength",
+      "title": "ストレングス/パワー/安定性/バランス・左右差",
+      "vendor": "HAWKIN",
+      "source": "cmj",
+      "metric_ids": [
+        "braking_rfd",
+        "peak_relative_propulsive_power",
+        "peak_propulsive_power",
+        "relative_peak_landing_force",
+        "peak_landing_force"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "speed",
+      "label": "スピード",
+      "vendor": "Photon",
+      "source": "sprint",
+      "metric_id": "sprint_max_speed",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "accel",
+      "label": "加速",
+      "vendor": "Photon",
+      "source": "agility_505",
+      "metric_id": "agility_avg_accel",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "decel",
+      "label": "減速",
+      "vendor": "Photon",
+      "source": "agility_505",
+      "metric_id": "agility_avg_decel",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "re_accel",
+      "label": "再加速",
+      "vendor": "Photon",
+      "source": "agility_505",
+      "metric_id": "agility_avg_reaccel",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "jump",
+      "label": "ジャンプ",
+      "vendor": "Hawkin",
+      "source": "cmj",
+      "metric_id": "jump_height",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "power",
+      "label": "パワー",
+      "vendor": "Hawkin",
+      "source": "cmj",
+      "metric_id": "peak_propulsive_power",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "stability",
+      "label": "安定性",
+      "vendor": "Hawkin",
+      "source": "cmj",
+      "metric_id": "peak_landing_force",
+      "direction": "higher_is_better"
+    },
+    {
+      "id": "balance_lr",
+      "label": "バランス・左右差",
+      "vendor": "Hawkin",
+      "source": "cmj",
+      "metric_id": "peak_propulsive_power",
+      "direction": "higher_is_better"
+    }
+  ]
+}

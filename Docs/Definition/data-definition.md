@@ -1,24 +1,27 @@
 # データ定義書（SSV 1Day PWA）
 
 - 作成日: 2026-01-11
-- 版数: v0.1
-- 参照: Docs/ScreenImage/ScreenImage.png, Docs/ScreenImage/CoachData.png
+- 更新日: 2026-02-04
+- 版数: v0.2
+- 参照: Docs/ScreenImage/ScreenImage.png, Docs/ScreenImage/CoachData.png, Docs/revise.md
 
 ---
 
 ## 1. 対象スコープ
 - 画面定義書で定義した SCR-01（レポート概略）/ SCR-02（レポート詳細）/ SCR-03（監督用ダッシュボード）で必要となるデータ項目
-- MVP第一弾は **CSV/JSONインポート → 画面表示** を最優先
+- 2026-01-18 測定会の実データ（Photon/Hawkin）を対象に、**CSV/JSONインポート → 画面表示** を最優先
+- 方向転換/疲労度/メンタル等の既存項目は、今後追加測定の可能性があるため **非表示（将来拡張）**
 
 ---
 
 ## 2. データソース
-- Photon Sports（加速/方向転換/減速/ジャンプ/左右差）
-- Hawkin Dynamics（ジャンプ/ストレングス/疲労度）
-- NTT Sportict（映像分析）※SCR-02では非表示（将来拡張）
-- PlayerData（試合の走行・GPS系指標）
-- Upmind（メンタル系）
+- Photon Sports（スプリント/5-0-5）
+  - `Data/Meiji Gakuin_sprint_0118.csv`
+  - `Data/Meiji Gakuin_505_0118.csv`
+- Hawkin Dynamics（Countermovement Jump）
+  - `Data/Meiji_Gakuin-01_18_26-01_18_26-_Countermovement_Jump.csv`
 - 参加者プロフィール（運営入力/事前登録）
+- NTT Sportict / PlayerData / Upmind は将来拡張（現時点は非表示）
 
 ---
 
@@ -51,8 +54,8 @@
 
 ### 3.4 CategoryScore（SCR-01 レーダー用）
 - category_id: string
-- score: number (0-100)
-- rank: number | null
+- score: number (70-95)
+- rank: number (1..N)
 - vendor: string
 
 ### 3.5 HighlightVideo
@@ -79,7 +82,7 @@
 - measuredAt: datetime | null
 
 ### 3.8 CoachRadarMetric（SCR-03）
-- id: string（accel_speed/change_dir/decel/jump/strength/balance_lr/fatigue/mental）
+- id: string（speed/accel/decel/re_accel/jump/power/stability/balance_lr）
 - label: string
 - score: number
 - metaLabel: string（例: ▲ +4 / ▼ 3 / ± 0）
@@ -95,127 +98,75 @@
 
 ## 4. KPIカテゴリ定義（SCR-01）
 
-| category_id | 表示名 | ベンダー想定 | 備考 |
+| category_id | 表示名 | データソース | 備考 |
 | --- | --- | --- | --- |
-| accel_speed | 加速・スピード | Photon | 5m/10m/20m/30m/Forced Velocity/最大速度 からスコア化 |
-| change_dir | 方向転換 | Photon | 5-10-5/T-test/Curved Sprint/Cut 45°/Cut 75° からスコア化 |
-| decel | 減速 | Photon | ADA/5-0-5 からスコア化 |
-| jump | ジャンプ | Hawkin | CMJ/スクワットジャンプ/片脚ジャンプ |
-| strength | ストレングス | Hawkin | Jump Power/RFD/Acceleration Potential |
-| balance_lr | バランス・左右差 | Hawkin | 左右差・片脚差・着地安定性指数 |
-| fatigue | 疲労度 | Hawkin | CMJ低下率/RFD低下率/着地衝撃増加 |
-| mental | メンタル | Upmind | 集中度/HRV/睡眠スコア |
+| speed | スピード | Photon Sprint | 主指標: Max speed (km/h) |
+| accel | 加速 | Photon 5-0-5 | 主指標: Average acceleration (m/s²) |
+| decel | 減速 | Photon 5-0-5 | 主指標: Average deceleration (m/s²) |
+| re_accel | 再加速 | Photon 5-0-5 | 主指標: Average re-acceleration (m/s²) |
+| jump | ジャンプ | Hawkin CMJ | 主指標: Jump Height |
+| power | パワー | Hawkin CMJ | 主指標: Peak Propulsive Power |
+| stability | 安定性 | Hawkin CMJ | 主指標: Peak Landing Force |
+| balance_lr | バランス・左右差 | Hawkin CMJ | 主指標: Peak Propulsive Power（左右差指標は将来） |
 
 補足:
-- SCR-03 は 8軸（加速・スピード/方向転換/減速/ジャンプ/ストレングス/バランス・左右差/疲労度/メンタル）を表示し、スコアに差分ラベルを併記する。
+- スコアは同一イベント内の相対評価で 70〜95 に正規化する。
+- 順位はチーム内順位（1..N）を付与する。
+- 方向転換/疲労度/メンタル等は将来追加測定のため非表示とする。
+- SCR-03 も同じ 8カテゴリを表示し、スコアに差分ラベルを併記する。
 
 ---
 
 ## 5. KPI明細定義（SCR-02）
 
-### 5.1 加速とスピード（Photon）
-| metric_id | 表示名 | 単位 | 形式 |
-| --- | --- | --- | --- |
-| sprint_5m | 5m | s | number |
-| sprint_10m | 10m | s | number |
-| sprint_20m | 20m | s | number |
-| sprint_30m | 30m | s | number |
-| forced_velocity | Forced Velocity | km/h | number |
-| max_speed | 最大速度 | km/h | number |
+### 5.1 スプリント（Photon）
+| metric_id | 表示名 | 単位 | 形式 | 参照カラム |
+| --- | --- | --- | --- | --- |
+| sprint_total_time | Total time | s | number | `Total time (s)` |
+| sprint_split_5m | Split time 5 m | s | number | `Split time 5 m (s)` |
+| sprint_split_10m | Split time 10 m | s | number | `Split time 10 m (s)` |
+| sprint_split_15m | Split time 15 m | s | number | `Split time 15 m (s)` |
+| sprint_split_20m | Split time 20 m | s | number | `Split time 20 m (s)` |
+| sprint_max_speed | Max speed | km/h | number | `Max speed (km/h)` |
+| sprint_accel | Acceleration | m/s² | number | `Acceleration (m/s²)` |
 
-表示数値例（前回→今回）
-- 5m: 1.12 s → 1.05 s
-- 10m: 1.89 s → 1.78 s
-- 20m: 3.12 s → 2.98 s
-- 30m: 4.35 s → 4.12 s
-- Forced Velocity: 28.4 km/h → 30.1 km/h
-- 最大速度: 31.2 km/h → 33.0 km/h
+- このテストでは「スピード（主指標: Max speed (km/h)）」を測定する。
 
-### 5.2 方向転換（Photon）
-| metric_id | 表示名 | 単位 | 形式 |
-| --- | --- | --- | --- |
-| change_5_10_5 | 5-10-5 | s | number |
-| change_t_test | T-test | s | number |
-| change_curved_sprint | Curved Sprint | s | number |
-| change_cut_45 | Cut 45° | s | number |
-| change_cut_75 | Cut 75° | s | number |
+### 5.2 アジリティ 5-0-5（Photon）
+| metric_id | 表示名 | 単位 | 形式 | 参照カラム |
+| --- | --- | --- | --- | --- |
+| agility_505_time | 5-0-5 time | s | number | `5-0-5 time (s)` |
+| agility_total_time | Total time | s | number | `Total time (s)` |
+| agility_max_speed | Max speed | km/h | number | `Max speed (km/h)` |
+| agility_avg_accel | Average acceleration | m/s² | number | `Average acceleration (m/s²)` |
+| agility_avg_decel | Average deceleration | m/s² | number | `Average deceleration (m/s²)` |
+| agility_avg_reaccel | Average re-acceleration | m/s² | number | `Average re-acceleration (m/s²)` |
+| agility_5_0_time | 5-0 time | s | number | `5-0 time (s)` |
+| agility_0_5_time | 0-5 time | s | number | `0-5 time (s)` |
 
-表示数値例（前回→今回）
-- 5-10-5: 4.62 s → 4.41 s
-- T-test: 9.88 s → 9.52 s
-- Curved Sprint: 6.21 s → 5.94 s
-- Cut 45°: 2.41 s → 2.28 s
-- Cut 75°: 2.68 s → 2.51 s
+- このテストでは「加速/減速/再加速」を測定する（主指標: Average acceleration / Average deceleration / Average re-acceleration）。
 
-### 5.3 減速（Photon）
-| metric_id | 表示名 | 単位 | 形式 |
-| --- | --- | --- | --- |
-| decel_ada_distance | ADA減速距離 | m | number |
-| decel_5_0_5 | 5-0-5 | s | number |
+### 5.3 ジャンプ（Hawkin CMJ）
+| metric_id | 表示名 | 単位 | 形式 | 参照カラム |
+| --- | --- | --- | --- | --- |
+| jump_height | Jump Height | vendor | number | `Jump Height` |
+| jump_momentum | Jump Momentum | vendor | number | `Jump Momentum` |
+| countermovement_depth | Countermovement Depth | vendor | number | `Countermovement Depth` |
+| flight_time | Flight Time | vendor | number | `Flight Time` |
+| time_to_takeoff | Time To Takeoff | vendor | number | `Time To Takeoff` |
 
-表示数値例（前回→今回）
-- ADA減速距離: 3.8 m → 3.1 m
-- 5-0-5: 2.41 s → 2.26 s
+- このテストでは「ジャンプ（主指標: Jump Height）」を測定する。
 
-### 5.4 ジャンプ（Hawkin）
-| metric_id | 表示名 | 単位 | 形式 |
-| --- | --- | --- | --- |
-| jump_cmj | CMJ | cm | number |
-| jump_squat | スクワットジャンプ | cm | number |
-| jump_single_leg | 片脚ジャンプ（R/L） | cm | pair (R/L) |
+### 5.4 ストレングス/パワー/安定性/バランス・左右差（Hawkin CMJ）
+| metric_id | 表示名 | 単位 | 形式 | 参照カラム |
+| --- | --- | --- | --- | --- |
+| braking_rfd | Braking RFD | vendor | number | `Braking RFD` |
+| peak_relative_propulsive_power | Peak Relative Propulsive Power | vendor | number | `Peak Relative Propulsive Power` |
+| peak_propulsive_power | Peak Propulsive Power | vendor | number | `Peak Propulsive Power` |
+| relative_peak_landing_force | Relative Peak Landing Force | vendor | number | `Relative Peak Landing Force` |
+| peak_landing_force | Peak Landing Force | vendor | number | `Peak Landing Force` |
 
-表示数値例（前回→今回）
-- CMJ: 38.2 cm → 42.6 cm
-- スクワットジャンプ: 34.1 cm → 37.8 cm
-- 片脚ジャンプ（R/L）: 31.2 / 28.4 cm → 33.5 / 32.9 cm
-
-### 5.5 ストレングス（Hawkin）
-| metric_id | 表示名 | 単位 | 形式 |
-| --- | --- | --- | --- |
-| strength_jump_power | ジャンプ力 | N/kg | number |
-| strength_rfd | RFD | N/s | number |
-| strength_accel_potential | 加速ポテンシャル | - | number |
-
-表示数値例（前回→今回）
-- ジャンプ力: 42.1 N/kg → 47.8 N/kg
-- RFD: 6,200 N/s → 7,450 N/s
-- 加速ポテンシャル: 0.82 → 0.91
-
-### 5.6 バランス・左右差（Hawkin）
-| metric_id | 表示名 | 単位 | 形式 |
-| --- | --- | --- | --- |
-| balance_lr | 左右差 | % | number |
-| balance_single_leg_gap | 片脚ジャンプ差 | % | number |
-| balance_landing_stability | 着地安定性指数 | score | number |
-
-表示数値例（前回→今回）
-- 左右差: 12.4 % → 5.8 %
-- 片脚ジャンプ差: 9.1 % → 3.2 %
-- 着地安定性指数: 68 → 82
-
-### 5.7 疲労度（Hawkin）
-| metric_id | 表示名 | 単位 | 形式 |
-| --- | --- | --- | --- |
-| fatigue_cmj_drop | CMJ低下率 | % | number |
-| fatigue_rfd_drop | RFD低下率 | % | number |
-| fatigue_landing_impact | 着地衝撃増加 | % | number |
-
-表示数値例（前回→今回）
-- CMJ低下率: -9.2 % → -3.1 %
-- RFD低下率: -11.4 % → -4.6 %
-- 着地衝撃増加: +14.2 % → +5.3 %
-
-### 5.8 メンタル（Upmind）
-| metric_id | 表示名 | 単位 | 形式 |
-| --- | --- | --- | --- |
-| mental_focus | 集中度 | score | number |
-| mental_hrv | HRV | ms | number |
-| mental_sleep_score | 睡眠スコア | score | number |
-
-表示数値例（前回→今回）
-- 集中度: 62 → 78
-- HRV: 48 ms → 61 ms
-- 睡眠スコア: 71 → 84
+- このテストでは「パワー（主指標: Peak Propulsive Power）」「安定性（主指標: Peak Landing Force）」「バランス・左右差（主指標: Peak Propulsive Power）」を測定する。
 
 ---
 
@@ -275,6 +226,8 @@
 
 ---
 
-## 8. 不整合事項（ベンダー資料との差分、Upmind除く）
-- Hawkin: ベンダー資料に **Jump Power/RFD/Acceleration Potential/疲労度** が明記されていない（フォースプレート由来の派生KPIとして扱う想定）。
-- PlayerData: ベンダー資料に **走行距離/最高時速/スプリント/加減速/ワークロード/ヒートマップ** 等があるが、SCR-01/02には未反映（PlayerDataロゴは表示）。
+## 8. 留意事項（CSV仕様/将来拡張）
+- Photon CSV は 1行目がタイトル、2行目が空行、3行目がヘッダーで、区切りは `;`。
+- Hawkin CSV はカンマ区切りで、1行目がヘッダー。
+- 5-0-5 の `Direction ()` は Left/Right を示す。表示/集計ルールは別途決定。
+- 方向転換/疲労度/メンタル/PlayerData/NTT/Upmind は将来拡張のため現時点は非表示。

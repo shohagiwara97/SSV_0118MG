@@ -1,12 +1,45 @@
+"use client";
+
 import Link from "next/link";
-import { detailSections } from "../lib/sampleData";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import {
+  getDefaultPlayerId,
+  getDetailSections,
+  reportDataUrl,
+  type ReportData
+} from "../lib/sampleData";
 
 export default function DetailPage() {
+  const searchParams = useSearchParams();
+  const playerParam = searchParams.get("player") ?? "";
+  const [reportData, setReportData] = useState<ReportData | null>(null);
+  const [selectedPlayerId, setSelectedPlayerId] = useState("");
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const response = await fetch(reportDataUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to load report data: ${response.status}`);
+        }
+        const data = (await response.json()) as ReportData;
+        setReportData(data);
+        setSelectedPlayerId((current) => current || playerParam || getDefaultPlayerId(data));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    load();
+  }, [playerParam]);
+
+  const detailSections = useMemo(
+    () => getDetailSections(reportData, selectedPlayerId),
+    [reportData, selectedPlayerId]
+  );
   const vendorIcons: Record<string, { src: string; alt: string }> = {
     PHOTON: { src: "/icons/photon.svg", alt: "Photon Sports" },
-    HAWKIN: { src: "/icons/hawkin.svg", alt: "Hawkin Dynamics" },
-    NTT: { src: "/icons/ntt-sportict.svg", alt: "NTT Sportict" },
-    UPMIND: { src: "/icons/upmind.svg", alt: "Upmind" }
+    HAWKIN: { src: "/icons/hawkin.svg", alt: "Hawkin Dynamics" }
   };
 
   return (

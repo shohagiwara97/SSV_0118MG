@@ -40,6 +40,23 @@ export type CoachCategory = {
   label: string;
 };
 
+type CoachSeedMetric = {
+  score: number;
+  delta: number;
+};
+
+type CoachSeedMetrics = Record<
+  | "accel_speed"
+  | "change_dir"
+  | "decel"
+  | "jump"
+  | "strength"
+  | "balance_lr"
+  | "fatigue"
+  | "mental",
+  CoachSeedMetric
+>;
+
 export type CoachPlayerReport = {
   player: CoachPlayerProfile;
   radarMetrics: CoachRadarMetric[];
@@ -64,16 +81,26 @@ export const coachFilterControls: CoachFilterControl[] = [
   }
 ];
 
-export const coachCategories: CoachCategory[] = [
-  { id: "accel_speed", label: "加速・スピード" },
-  { id: "change_dir", label: "方向転換" },
-  { id: "decel", label: "減速" },
-  { id: "jump", label: "ジャンプ" },
-  { id: "strength", label: "ストレングス" },
-  { id: "balance_lr", label: "バランス・左右差" },
-  { id: "fatigue", label: "疲労度" },
-  { id: "mental", label: "メンタル" }
+const categoryMappings: Array<{
+  id: CoachCategory["id"];
+  label: CoachCategory["label"];
+  sourceId: keyof CoachSeedMetrics;
+  scoreOffset?: number;
+}> = [
+  { id: "speed", label: "スピード", sourceId: "accel_speed", scoreOffset: 2 },
+  { id: "accel", label: "加速", sourceId: "accel_speed", scoreOffset: -1 },
+  { id: "decel", label: "減速", sourceId: "decel", scoreOffset: 0 },
+  { id: "re_accel", label: "再加速", sourceId: "change_dir", scoreOffset: 1 },
+  { id: "jump", label: "ジャンプ", sourceId: "jump", scoreOffset: 0 },
+  { id: "power", label: "パワー", sourceId: "strength", scoreOffset: 1 },
+  { id: "stability", label: "安定性", sourceId: "balance_lr", scoreOffset: 2 },
+  { id: "balance_lr", label: "バランス・左右差", sourceId: "balance_lr", scoreOffset: -1 }
 ];
+
+export const coachCategories: CoachCategory[] = categoryMappings.map(({ id, label }) => ({
+  id,
+  label
+}));
 
 export const coachPlayerList: CoachPlayerProfile[] = [
   {
@@ -206,14 +233,7 @@ export const coachPlayerList: CoachPlayerProfile[] = [
 
 export const coachDefaultPlayerId = "player-05";
 
-type CoachScoreDelta = {
-  score: number;
-  delta: number;
-};
-
-type CoachPlayerMetrics = Record<string, CoachScoreDelta>;
-
-const coachPlayerMetricsMap: Record<string, CoachPlayerMetrics> = {
+const coachPlayerSeedMetricsMap: Record<string, CoachSeedMetrics> = {
   "player-01": {
     accel_speed: { score: 72, delta: 2 },
     change_dir: { score: 68, delta: 1 },
@@ -326,6 +346,22 @@ const coachPlayerMetricsMap: Record<string, CoachPlayerMetrics> = {
   }
 };
 
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(max, Math.max(min, value));
+
+const seedScoreRange = { min: 55, max: 95 };
+const displayScoreRange = { min: 70, max: 95 };
+
+const normalizeScore = (value: number) => {
+  const ratio =
+    seedScoreRange.max === seedScoreRange.min
+      ? 0.5
+      : (value - seedScoreRange.min) / (seedScoreRange.max - seedScoreRange.min);
+  const scaled =
+    displayScoreRange.min + ratio * (displayScoreRange.max - displayScoreRange.min);
+  return Math.round(clamp(scaled, displayScoreRange.min, displayScoreRange.max));
+};
+
 const formatDeltaLabel = (value: number) => {
   if (value > 0) return `▲ +${value}`;
   if (value < 0) return `▼ ${Math.abs(value)}`;
@@ -339,25 +375,27 @@ const deltaTone = (value: number): CoachRadarMetric["tone"] => {
 };
 
 const buildRadarMetrics = (playerId: string): CoachRadarMetric[] =>
-  coachCategories.map((category) => {
-    const metric = coachPlayerMetricsMap[playerId][category.id];
+  categoryMappings.map((category) => {
+    const base = coachPlayerSeedMetricsMap[playerId][category.sourceId];
+    const adjustedScore = (base.score ?? 0) + (category.scoreOffset ?? 0);
     return {
       id: category.id,
       label: category.label,
-      score: metric.score,
-      metaLabel: formatDeltaLabel(metric.delta),
-      tone: deltaTone(metric.delta)
+      score: normalizeScore(adjustedScore),
+      metaLabel: formatDeltaLabel(base.delta),
+      tone: deltaTone(base.delta)
     };
   });
 
 const buildSummaryMetrics = (playerId: string): CoachSummaryMetric[] =>
-  coachCategories.map((category) => {
-    const metric = coachPlayerMetricsMap[playerId][category.id];
+  categoryMappings.map((category) => {
+    const base = coachPlayerSeedMetricsMap[playerId][category.sourceId];
+    const adjustedScore = (base.score ?? 0) + (category.scoreOffset ?? 0);
     return {
       id: category.id,
       label: category.label,
-      score: metric.score,
-      delta: metric.delta
+      score: normalizeScore(adjustedScore),
+      delta: base.delta
     };
   });
 
