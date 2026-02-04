@@ -118,12 +118,16 @@ export default function CoachPage() {
 
   const sortedPlayerList = useMemo(() => {
     const direction = sortDirections[sortKey] === "asc" ? 1 : -1;
+    const hasGradeData = coachPlayerList.some((player) => !!player.grade);
+    const hasTermData = coachPlayerList.some((player) => !!player.term);
     return coachPlayerList
       .filter((player) => {
         const gradeMatches =
-          gradeFilter === "all" || (player.grade ?? "--") === gradeFilter;
+          gradeFilter === "all" ||
+          (!hasGradeData ? true : (player.grade ?? "--") === gradeFilter);
         const termMatches =
-          termFilter === "all" || (player.term ?? "通期") === termFilter;
+          termFilter === "all" ||
+          (!hasTermData ? true : (player.term ?? "通期") === termFilter);
         return gradeMatches && termMatches;
       })
       .sort((a, b) => {
