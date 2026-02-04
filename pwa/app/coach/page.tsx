@@ -131,7 +131,7 @@ export default function CoachPage() {
         if (primary !== 0) {
           return primary * direction;
         }
-        return a.number - b.number;
+        return (a.number ?? Number.MAX_SAFE_INTEGER) - (b.number ?? Number.MAX_SAFE_INTEGER);
       });
   }, [gradeFilter, sortKey, termFilter]);
 
