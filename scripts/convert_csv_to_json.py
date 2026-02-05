@@ -190,17 +190,25 @@ def select_rows(
     return selected
 
 
-def aggregate_metrics(rows: List[Dict[str, str]], metrics: Dict[str, Any], agg: str) -> Dict[str, Optional[float]]:
+def aggregate_metrics(
+    rows: List[Dict[str, str]], metrics: Dict[str, Any], agg: str
+) -> Tuple[Dict[str, Optional[float]], Dict[str, Optional[float]]]:
     if agg not in {"avg", "min", "max"}:
         agg = "avg"
     values_map: Dict[str, List[float]] = {metric_id: [] for metric_id in metrics.keys()}
+    raw_values_map: Dict[str, List[float]] = defaultdict(list)
     for row in rows:
         for metric_id, meta in metrics.items():
-            value = parse_float(row.get(meta["column"], ""))
-            value = apply_transform(value, meta.get("transform"))
+            raw_value = parse_float(row.get(meta["column"], ""))
+            if raw_value is None:
+                continue
+            transform = meta.get("transform")
+            value = apply_transform(raw_value, transform)
             if value is None:
                 continue
             values_map[metric_id].append(value)
+            if transform:
+                raw_values_map[metric_id].append(raw_value)
 
     result: Dict[str, Optional[float]] = {}
     for metric_id, values in values_map.items():
@@ -213,18 +221,35 @@ def aggregate_metrics(rows: List[Dict[str, str]], metrics: Dict[str, Any], agg: 
             result[metric_id] = max(values)
         else:
             result[metric_id] = sum(values) / len(values)
-    return result
+    raw_result: Dict[str, Optional[float]] = {}
+    for metric_id, values in raw_values_map.items():
+        if not values:
+            raw_result[metric_id] = None
+            continue
+        if agg == "min":
+            raw_result[metric_id] = min(values)
+        elif agg == "max":
+            raw_result[metric_id] = max(values)
+        else:
+            raw_result[metric_id] = sum(values) / len(values)
+    return result, raw_result
 
 
-def extract_metrics(rows: List[Dict[str, str]], metrics: Dict[str, Any]) -> Dict[str, Optional[float]]:
+def extract_metrics(
+    rows: List[Dict[str, str]], metrics: Dict[str, Any]
+) -> Tuple[Dict[str, Optional[float]], Dict[str, Optional[float]]]:
     if not rows:
-        return {metric_id: None for metric_id in metrics.keys()}
+        return {metric_id: None for metric_id in metrics.keys()}, {}
     row = rows[0]
     result: Dict[str, Optional[float]] = {}
+    raw_result: Dict[str, Optional[float]] = {}
     for metric_id, meta in metrics.items():
-        value = parse_float(row.get(meta["column"], ""))
-        result[metric_id] = apply_transform(value, meta.get("transform"))
-    return result
+        raw_value = parse_float(row.get(meta["column"], ""))
+        transform = meta.get("transform")
+        result[metric_id] = apply_transform(raw_value, transform)
+        if transform:
+            raw_result[metric_id] = raw_value
+    return result, raw_result
 
 
 def score_values(
@@ -286,6 +311,7 @@ def build_output(config: Dict[str, Any]) -> Dict[str, Any]:
     rounding = config.get("score_rounding", "round")
 
     metrics_by_source: Dict[str, Dict[str, Dict[str, Optional[float]]]] = defaultdict(dict)
+    raw_by_source: Dict[str, Dict[str, Dict[str, Optional[float]]]] = defaultdict(dict)
     player_meta: Dict[str, Dict[str, Any]] = {}
 
     for source_id, source in sources.items():
@@ -297,11 +323,13 @@ def build_output(config: Dict[str, Any]) -> Dict[str, Any]:
 
         for name, (timestamp, rows_for_player) in selected.items():
             if aggregate:
-                metrics_map = aggregate_metrics(rows_for_player, metrics, aggregate)
+                metrics_map, raw_map = aggregate_metrics(rows_for_player, metrics, aggregate)
             else:
-                metrics_map = extract_metrics(rows_for_player, metrics)
+                metrics_map, raw_map = extract_metrics(rows_for_player, metrics)
 
             metrics_by_source[source_id][name] = metrics_map
+            if raw_map:
+                raw_by_source[source_id][name] = raw_map
             meta = player_meta.setdefault(name, {})
             if timestamp:
                 existing = meta.get("measuredAt")
@@ -356,7 +384,8 @@ def build_output(config: Dict[str, Any]) -> Dict[str, Any]:
             metrics_block[source_id] = {
                 metric_id: {
                     "value": value,
-                    "unit": sources[source_id]["metrics"][metric_id].get("unit")
+                    "unit": sources[source_id]["metrics"][metric_id].get("unit"),
+                    "raw": raw_by_source.get(source_id, {}).get(name, {}).get(metric_id)
                 }
                 for metric_id, value in source_metrics[name].items()
             }
@@ -382,6 +411,7 @@ def build_output(config: Dict[str, Any]) -> Dict[str, Any]:
             for metric_id in section["metric_ids"]:
                 value = metrics_by_source.get(source_id, {}).get(name, {}).get(metric_id)
                 unit = metric_defs[metric_id].get("unit")
+                raw_value = raw_by_source.get(source_id, {}).get(name, {}).get(metric_id)
                 display = None
                 if value is not None and unit and unit != "vendor":
                     display = f"{value} {unit}"
@@ -393,7 +423,8 @@ def build_output(config: Dict[str, Any]) -> Dict[str, Any]:
                         "label": metric_defs[metric_id].get("label", metric_id),
                         "value": value,
                         "unit": unit,
-                        "display": display
+                        "display": display,
+                        "raw": raw_value
                     }
                 )
             player_sections.append(

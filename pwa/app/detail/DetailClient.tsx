@@ -76,32 +76,58 @@ export default function DetailClient() {
     return undefined;
   }, [activeMetric]);
 
+  const getBalanceSideIndicator = (metric: { id: string; raw?: number | null }) => {
+    if (!metric.id.startsWith("lr_")) {
+      return null;
+    }
+    if (metric.raw == null) {
+      return { label: "左右差不明", className: "text-muted" };
+    }
+    if (metric.raw > 0) {
+      return { label: "左が優位", className: "text-accent" };
+    }
+    if (metric.raw < 0) {
+      return { label: "右が優位", className: "text-danger" };
+    }
+    return { label: "同等", className: "text-muted" };
+  };
+
   const renderMetrics = (metrics: typeof detailSections[number]["metrics"]) => (
     <div className="mt-3 space-y-3">
-      {metrics.map((metric) => (
-        <button
-          key={metric.label}
-          type="button"
-          onClick={() => openMetric(metric)}
-          className="grid w-full gap-3 rounded-2xl border border-line bg-surfaceAlt px-4 py-3 text-left text-base transition hover:border-accent/40 hover:bg-white sm:grid-cols-[1fr_0.7fr_0.7fr] sm:text-sm"
-        >
-          <span className="font-medium text-accent">{metric.label}</span>
-          <div className="grid grid-cols-2 gap-3 sm:contents">
-            <span className="flex flex-col gap-1 text-muted sm:block">
-              <span className="text-[11px] uppercase tracking-[0.12em] text-muted sm:hidden">
-                前回
+      {metrics.map((metric) => {
+        const sideIndicator = getBalanceSideIndicator(metric);
+        return (
+          <button
+            key={metric.label}
+            type="button"
+            onClick={() => openMetric(metric)}
+            className="grid w-full gap-3 rounded-2xl border border-line bg-surfaceAlt px-4 py-3 text-left text-base transition hover:border-accent/40 hover:bg-white sm:grid-cols-[1fr_0.7fr_0.7fr] sm:text-sm"
+          >
+            <div className="flex flex-col">
+              <span className="font-medium text-accent">{metric.label}</span>
+              {sideIndicator && (
+                <span className={`mt-1 text-[11px] ${sideIndicator.className}`}>
+                  {sideIndicator.label}
+                </span>
+              )}
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:contents">
+              <span className="flex flex-col gap-1 text-muted sm:block">
+                <span className="text-[11px] uppercase tracking-[0.12em] text-muted sm:hidden">
+                  前回
+                </span>
+                {metric.previous}
               </span>
-              {metric.previous}
-            </span>
-            <span className="flex flex-col gap-1 text-accent sm:block">
-              <span className="text-[11px] uppercase tracking-[0.12em] text-muted sm:hidden">
-                今回
+              <span className="flex flex-col gap-1 text-accent sm:block">
+                <span className="text-[11px] uppercase tracking-[0.12em] text-muted sm:hidden">
+                  今回
+                </span>
+                {metric.current}
               </span>
-              {metric.current}
-            </span>
-          </div>
-        </button>
-      ))}
+            </div>
+          </button>
+        );
+      })}
     </div>
   );
 

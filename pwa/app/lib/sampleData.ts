@@ -11,6 +11,7 @@ export type ReportMetric = {
   label: string;
   previous: string;
   current: string;
+  raw?: number | null;
 };
 
 export type ReportSection = {
@@ -42,6 +43,7 @@ export type ReportData = {
 type SourceMetric = {
   value: number | null;
   unit: string | null;
+  raw?: number | null;
 };
 
 type PlayerCategory = {
@@ -58,6 +60,7 @@ type PlayerMetric = {
   value: number | null;
   unit: string | null;
   display: string | null;
+  raw?: number | null;
 };
 
 type PlayerSection = {
@@ -150,6 +153,7 @@ export const getDetailSections = (
       id: metric.id,
       label: metric.label,
       previous: "--",
-      current: formatMetricValue(metric)
+      current: formatMetricValue(metric),
+      raw: metric.raw ?? null
     }))
   }));
