@@ -108,14 +108,14 @@ Photon Sprint / Photon 5-0-5 / Hawkin CMJ のCSV。
 
 **6. 指標の評価方向（＋値がプラス評価 / －評価）**
 
-**A. ＋値がプラス評価（値が大きいほど良い）**
+**A. 正の値がプラス評価（値が大きいほど良い）**
 - スプリント: `sprint_max_speed` / `sprint_accel`
 - アジリティ: `agility_max_speed` / `agility_avg_accel` / `agility_avg_decel` / `agility_avg_reaccel`
 - ジャンプ: `jump_height` / `jump_momentum` / `flight_time`
 - パワー: `peak_propulsive_power` / `peak_relative_propulsive_power`
 - 安定性: `peak_landing_force` / `relative_peak_landing_force`
 
-**B. ＋値がマイナス評価（値が小さいほど良い）**
+**B. 正の値がマイナス評価（値が小さいほど良い）**
 - スプリント: `sprint_total_time` / `sprint_split_5m` / `sprint_split_10m` / `sprint_split_15m` / `sprint_split_20m`
 - アジリティ: `agility_5_0_time` / `agility_0_5_time`
 - バランス・左右差: `lr_peak_braking_force` / `lr_peak_propulsive_force` / `lr_peak_landing_force`（左右差は小さいほど良い）

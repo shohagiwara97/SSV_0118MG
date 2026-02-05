@@ -57,8 +57,8 @@ export default function DetailClient() {
   const closeMetric = () => setActiveMetric(null);
 
   const evaluationLabels: Record<string, string> = {
-    positive: "＋値がプラス評価（値が大きいほど良い）",
-    negative: "＋値がマイナス評価（値が小さいほど良い）",
+    positive: "正の値がプラス評価（値が大きいほど良い）",
+    negative: "正の値がマイナス評価（値が小さいほど良い）",
     absolute: "絶対値で評価（符号は評価に使わない）",
     reference: "評価方向を固定しない（参考値）"
   };
