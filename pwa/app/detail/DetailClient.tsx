@@ -52,6 +52,13 @@ export default function DetailClient() {
 
   const closeMetric = () => setActiveMetric(null);
 
+  const evaluationLabels: Record<string, string> = {
+    positive: "＋値がプラス評価（値が大きいほど良い）",
+    negative: "＋値がマイナス評価（値が小さいほど良い）",
+    absolute: "絶対値で評価（符号は評価に使わない）",
+    reference: "評価方向を固定しない（参考値）"
+  };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -245,8 +252,12 @@ export default function DetailClient() {
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-muted">指標の評価方法</p>
                 <p className="mt-2 leading-relaxed">
-                  {metricDetailsMap[activeMetric.id]?.logic ??
-                    "評価方法が未設定です。"}
+                  {metricDetailsMap[activeMetric.id]?.evaluation
+                    ? evaluationLabels[metricDetailsMap[activeMetric.id]?.evaluation]
+                    : "評価方法が未設定です。"}
+                </p>
+                <p className="mt-2 leading-relaxed text-muted">
+                  {metricDetailsMap[activeMetric.id]?.logic ?? "算出方法が未設定です。"}
                 </p>
                 {metricDetailsMap[activeMetric.id]?.note && (
                   <p className="mt-2 text-xs text-muted">
