@@ -29,7 +29,11 @@ export default function DetailClient() {
         }
         const data = (await response.json()) as ReportData;
         setReportData(data);
-        setSelectedPlayerId((current) => current || playerParam || getDefaultPlayerId(data));
+        const validIds = new Set(data.players.map((player) => player.id));
+        const resolvedId = validIds.has(playerParam)
+          ? playerParam
+          : getDefaultPlayerId(data);
+        setSelectedPlayerId((current) => current || resolvedId);
       } catch (error) {
         console.error(error);
       }
@@ -172,46 +176,52 @@ export default function DetailClient() {
       </p>
 
       <div className="space-y-4">
-        {detailSections.map((section, index) => (
-          <details
-            key={section.id}
-            open
-            className="neon-card rounded-3xl p-5 motion-safe:animate-reveal sm:p-6"
-            style={{ animationDelay: `${index * 120}ms` }}
-          >
-            <summary className="grid grid-cols-[1fr_auto] items-center gap-3 text-accent sm:flex sm:flex-wrap sm:items-center sm:justify-between">
-              <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3">
-                <span
-                  className="font-display text-base font-semibold sm:text-xl"
-                  style={{ color: "#1746FF" }}
-                >
-                  {section.title}
-                </span>
-                {vendorIcons[section.vendor] && (
-                  <span className="label-chip flex items-center justify-center">
-                    <img
-                      src={vendorIcons[section.vendor].src}
-                      alt={vendorIcons[section.vendor].alt}
-                      className="h-4 w-auto max-w-[90px] opacity-90 sm:h-6 sm:max-w-[110px]"
-                    />
+        {detailSections.length ? (
+          detailSections.map((section, index) => (
+            <details
+              key={section.id}
+              open
+              className="neon-card rounded-3xl p-5 motion-safe:animate-reveal sm:p-6"
+              style={{ animationDelay: `${index * 120}ms` }}
+            >
+              <summary className="grid grid-cols-[1fr_auto] items-center gap-3 text-accent sm:flex sm:flex-wrap sm:items-center sm:justify-between">
+                <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3">
+                  <span
+                    className="font-display text-base font-semibold sm:text-xl"
+                    style={{ color: "#1746FF" }}
+                  >
+                    {section.title}
                   </span>
-                )}
-              </span>
-              <span className="justify-self-end whitespace-nowrap text-xs text-muted sm:ml-auto sm:text-[11px]">
-                タップで折りたたみ
-              </span>
-            </summary>
+                  {vendorIcons[section.vendor] && (
+                    <span className="label-chip flex items-center justify-center">
+                      <img
+                        src={vendorIcons[section.vendor].src}
+                        alt={vendorIcons[section.vendor].alt}
+                        className="h-4 w-auto max-w-[90px] opacity-90 sm:h-6 sm:max-w-[110px]"
+                      />
+                    </span>
+                  )}
+                </span>
+                <span className="justify-self-end whitespace-nowrap text-xs text-muted sm:ml-auto sm:text-[11px]">
+                  タップで折りたたみ
+                </span>
+              </summary>
 
-            <div className="mt-4 hidden grid-cols-[1fr_0.7fr_0.7fr] text-xs uppercase tracking-[0.2em] text-accent sm:grid sm:text-[11px] sm:tracking-[0.28em]">
-              <span>項目</span>
-              <span>前回</span>
-              <span>今回</span>
-            </div>
-            {section.id === "agility_505"
-              ? renderAgilityGroups(section.metrics)
-              : renderMetrics(section.metrics)}
-          </details>
-        ))}
+              <div className="mt-4 hidden grid-cols-[1fr_0.7fr_0.7fr] text-xs uppercase tracking-[0.2em] text-accent sm:grid sm:text-[11px] sm:tracking-[0.28em]">
+                <span>項目</span>
+                <span>前回</span>
+                <span>今回</span>
+              </div>
+              {section.id === "agility_505"
+                ? renderAgilityGroups(section.metrics)
+                : renderMetrics(section.metrics)}
+            </details>
+          ))
+        ) : (
+          <div className="rounded-3xl border border-line bg-white/70 px-4 py-6 text-center text-sm text-muted">
+            データがありません。
+          </div>
+        )}
       </div>
       {activeMetric && (
         <div
