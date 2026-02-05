@@ -165,15 +165,15 @@
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
 | peak_propulsive_power | 推進最大パワー | vendor | number | `Peak Propulsive Power` |
-| peak_relative_propulsive_power | 推進最大パワー（体重比） | vendor | number | `Peak Relative Propulsive Power` |
+| peak_relative_propulsive_power | 推進最大パワー (体重比) | vendor | number | `Peak Relative Propulsive Power` |
 | peak_braking_power | 制動最大パワー | vendor | number | `Peak Braking Power` |
-| peak_relative_braking_power | 制動最大パワー（体重比） | vendor | number | `Peak Relative Braking Power` |
+| peak_relative_braking_power | 制動最大パワー (体重比) | vendor | number | `Peak Relative Braking Power` |
 
 ### 5.5 安定性（Hawkin CMJ）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
 | --- | --- | --- | --- | --- |
 | peak_landing_force | 着地最大力 | vendor | number | `Peak Landing Force` |
-| relative_peak_landing_force | 着地最大力（体重比） | vendor | number | `Relative Peak Landing Force` |
+| relative_peak_landing_force | 着地最大力 (体重比) | vendor | number | `Relative Peak Landing Force` |
 
 ### 5.6 バランス・左右差（Hawkin CMJ）
 | metric_id | 表示名 | 単位 | 形式 | 参照カラム |
@@ -190,7 +190,7 @@
 ## 6. 監督用ダッシュボード（SCR-03）
 
 ### 6.1 フィルタ/ソート
-- ソート: 選手名/学年/ポジション/背番号/伸長率/疲労フラグ
+- ソート: 選手名/学年/ポジション/背番号
 - 学年フィルタ（例: 全学年/高3/高2/高1）
 - 期間フィルタ（例: 通期/上半期/下半期）
 - デフォルト: 背番号昇順
@@ -203,9 +203,6 @@
 | position | ポジション | - | string |
 | grade | 学年 | - | string |
 | term | 半期 | - | string |
-| growthRate | 直近伸長率 | % | number |
-| fatigueFlag | 疲労フラグ | - | boolean |
-| statusBadge | 状態バッジ | - | enum |
 | measuredAt | 測定日 | - | datetime |
 
 ### 6.3 レーダー/差分表示

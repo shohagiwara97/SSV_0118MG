@@ -9,12 +9,16 @@ import {
   reportDataUrl,
   type ReportData
 } from "../lib/sampleData";
+import { metricDetailsMap } from "../lib/metricDetails";
 
 export default function DetailClient() {
   const searchParams = useSearchParams();
   const playerParam = searchParams.get("player") ?? "";
   const [reportData, setReportData] = useState<ReportData | null>(null);
   const [selectedPlayerId, setSelectedPlayerId] = useState("");
+  const [activeMetric, setActiveMetric] = useState<{ id: string; label: string } | null>(
+    null
+  );
 
   useEffect(() => {
     const load = async () => {
@@ -42,12 +46,33 @@ export default function DetailClient() {
     HAWKIN: { src: "/icons/hawkin.svg", alt: "Hawkin Dynamics" }
   };
 
+  const openMetric = (metric: { id: string; label: string }) => {
+    setActiveMetric({ id: metric.id, label: metric.label });
+  };
+
+  const closeMetric = () => setActiveMetric(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMetric();
+      }
+    };
+    if (activeMetric) {
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }
+    return undefined;
+  }, [activeMetric]);
+
   const renderMetrics = (metrics: typeof detailSections[number]["metrics"]) => (
     <div className="mt-3 space-y-3">
       {metrics.map((metric) => (
-        <div
+        <button
           key={metric.label}
-          className="grid gap-3 rounded-2xl border border-line bg-surfaceAlt px-4 py-3 text-base sm:grid-cols-[1fr_0.7fr_0.7fr] sm:text-sm"
+          type="button"
+          onClick={() => openMetric(metric)}
+          className="grid w-full gap-3 rounded-2xl border border-line bg-surfaceAlt px-4 py-3 text-left text-base transition hover:border-accent/40 hover:bg-white sm:grid-cols-[1fr_0.7fr_0.7fr] sm:text-sm"
         >
           <span className="font-medium text-accent">{metric.label}</span>
           <div className="grid grid-cols-2 gap-3 sm:contents">
@@ -64,7 +89,7 @@ export default function DetailClient() {
               {metric.current}
             </span>
           </div>
-        </div>
+        </button>
       ))}
     </div>
   );
@@ -181,6 +206,58 @@ export default function DetailClient() {
           </details>
         ))}
       </div>
+      {activeMetric && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 py-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${activeMetric.label}の詳細`}
+          onClick={closeMetric}
+        >
+          <div
+            className="w-full max-w-lg rounded-3xl border border-line bg-white p-6 shadow-card"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted">Metric</p>
+                <h2 className="mt-1 font-display text-xl text-accent">
+                  {metricDetailsMap[activeMetric.id]?.label ?? activeMetric.label}
+                </h2>
+              </div>
+              <button
+                type="button"
+                className="rounded-full border border-line px-3 py-1 text-xs text-muted hover:border-accent/40 hover:text-accent"
+                onClick={closeMetric}
+              >
+                閉じる
+              </button>
+            </div>
+
+            <div className="mt-4 space-y-4 text-sm text-ink">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted">説明</p>
+                <p className="mt-2 leading-relaxed">
+                  {metricDetailsMap[activeMetric.id]?.description ??
+                    "説明が未設定です。"}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted">計算ロジック</p>
+                <p className="mt-2 leading-relaxed">
+                  {metricDetailsMap[activeMetric.id]?.logic ??
+                    "計算ロジックが未設定です。"}
+                </p>
+                {metricDetailsMap[activeMetric.id]?.note && (
+                  <p className="mt-2 text-xs text-muted">
+                    {metricDetailsMap[activeMetric.id]?.note}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

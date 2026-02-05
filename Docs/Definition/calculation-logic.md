@@ -102,3 +102,82 @@ Photon Sprint / Photon 5-0-5 / Hawkin CMJ のCSV。
 6. パワー: `peak_propulsive_power`（higher_is_better）  
 7. 安定性: `peak_landing_force`（higher_is_better）  
 8. バランス・左右差: `lr_peak_braking_force`（lower_is_better）
+
+---
+
+**6. 指標の評価方向（＋値がプラス評価 / －評価）**
+
+**A. ＋値がプラス評価（値が大きいほど良い）**
+- スプリント: `sprint_max_speed` / `sprint_accel`
+- アジリティ: `agility_max_speed` / `agility_avg_accel` / `agility_avg_decel` / `agility_avg_reaccel`
+- ジャンプ: `jump_height` / `jump_momentum` / `flight_time`
+- パワー: `peak_propulsive_power` / `peak_relative_propulsive_power`
+- 安定性: `peak_landing_force` / `relative_peak_landing_force`
+
+**B. ＋値がマイナス評価（値が小さいほど良い）**
+- スプリント: `sprint_total_time` / `sprint_split_5m` / `sprint_split_10m` / `sprint_split_15m` / `sprint_split_20m`
+- アジリティ: `agility_5_0_time` / `agility_0_5_time`
+- バランス・左右差: `lr_peak_braking_force` / `lr_peak_propulsive_force` / `lr_peak_landing_force`（左右差は小さいほど良い）
+
+**C. 絶対値で評価（符号は評価に使わない）**
+- パワー: `peak_braking_power` / `peak_relative_braking_power`
+  - 制動系パワーは負値が出るため、評価は絶対値の大きさを重視する。
+
+**D. 評価方向を固定しない（参考値）**
+- `countermovement_depth` / `time_to_takeoff`
+  - 動作戦略の違いが出るため、良否は文脈で判断する。
+
+---
+
+**7. 画面表示名（日本語表記）**
+
+**カテゴリ表示名**
+| category_id | 表示名 |
+| --- | --- |
+| speed | スピード |
+| accel | 加速 |
+| decel | 減速 |
+| re_accel | 再加速 |
+| jump | ジャンプ |
+| power | パワー |
+| stability | 安定性 |
+| balance_lr | バランス・左右差 |
+
+**指標表示名**
+| metric_id | 表示名 |
+| --- | --- |
+| sprint_total_time | 総合タイム |
+| sprint_split_5m | 5m 到達タイム |
+| sprint_split_10m | 10m 到達タイム |
+| sprint_split_15m | 15m 到達タイム |
+| sprint_split_20m | 20m 到達タイム |
+| sprint_max_speed | 最大速度 |
+| sprint_accel | 加速度 |
+| agility_max_speed | 最大速度 |
+| agility_avg_accel | 平均加速度 |
+| agility_avg_decel | 平均減速度 |
+| agility_avg_reaccel | 平均再加速度 |
+| agility_5_0_time | 進入5mタイム |
+| agility_0_5_time | 再加速5mタイム |
+| jump_height | 跳躍高 |
+| jump_momentum | ジャンプモメンタム |
+| countermovement_depth | 沈み込み量 |
+| flight_time | 滞空時間 |
+| time_to_takeoff | 離地時間 |
+| peak_propulsive_power | 推進最大パワー |
+| peak_relative_propulsive_power | 推進最大パワー (体重比) |
+| peak_braking_power | 制動最大パワー |
+| peak_relative_braking_power | 制動最大パワー (体重比) |
+| peak_landing_force | 着地最大力 |
+| relative_peak_landing_force | 着地最大力 (体重比) |
+| lr_peak_braking_force | 左右差: 制動最大力 |
+| lr_peak_propulsive_force | 左右差: 推進最大力 |
+| lr_peak_landing_force | 左右差: 着地最大力 |
+
+---
+
+**8. 詳細画面モーダル（説明/計算ロジック）**
+
+詳細画面では、各項目をタップ/クリックすると以下を表示する。  
+- 項目の説明（意味/用途）  
+- 計算ロジック（どのCSVカラムを使い、どう集計したか）
