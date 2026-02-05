@@ -243,10 +243,10 @@ export default function DetailClient() {
                 </p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-muted">計算ロジック</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted">指標の評価方法</p>
                 <p className="mt-2 leading-relaxed">
                   {metricDetailsMap[activeMetric.id]?.logic ??
-                    "計算ロジックが未設定です。"}
+                    "評価方法が未設定です。"}
                 </p>
                 {metricDetailsMap[activeMetric.id]?.note && (
                   <p className="mt-2 text-xs text-muted">
